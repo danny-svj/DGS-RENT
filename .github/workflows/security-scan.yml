@@ -33,7 +33,7 @@ jobs:
           npx wait-on http://localhost:4000/api/health --timeout 30000
 
       - name: Escaneo baseline con OWASP ZAP
-        uses: zaproxy/action-baseline@v0.12.0
+        uses: zaproxy/action-baseline@master
         with:
           target: 'http://localhost:4000/api/health'
           fail_action: false
