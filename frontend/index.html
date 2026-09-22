@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>DGS Rent a Car — Renta de autos simple y rapida</title>
+<meta name="description" content="DGS Rent a Car: renta de vehiculos para clientes particulares y empresas. Reserva en linea en minutos." />
+<link rel="icon" href="assets/logo.png" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+<link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="container">
+    <a href="index.html" class="brand"><img src="assets/logo.png" alt="DGS Rent a Car" /></a>
+    <ul class="nav-links">
+      <li><a href="#flota">Flota</a></li>
+      <li><a href="#servicios">Servicios</a></li>
+      <li><a href="#empresas">Empresas</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+    </ul>
+    <div class="nav-actions">
+      <a href="login.html" class="btn btn-ghost btn-sm">Iniciar sesion</a>
+      <a href="register.html" class="btn btn-primary btn-sm">Crear cuenta</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="container hero-grid">
+    <div>
+      <div class="eyebrow"><span class="dot"></span> Disponibilidad en tiempo real</div>
+      <h1>Renta el auto perfecto,<br><span class="hl-blue">a tu</span> <span class="accent">ritmo</span>.</h1>
+      <p class="lead">DGS Rent a Car conecta a clientes particulares y empresas con una flota lista para salir a carretera. Reserva en linea, sin filas ni papeleo.</p>
+      <div class="hero-cta">
+        <a href="register.html" class="btn btn-accent">Reservar ahora <i class="fa-solid fa-arrow-right"></i></a>
+        <a href="#flota" class="btn btn-ghost">Ver flota disponible</a>
+      </div>
+      <div class="stat-row">
+        <div class="stat"><b data-count="120" data-suffix="+">0</b><span>Vehiculos en flota</span></div>
+        <div class="stat"><b data-count="18" data-suffix="+">0</b><span>Ciudades cubiertas</span></div>
+        <div class="stat"><b data-count="4800" data-suffix="+">0</b><span>Reservas completadas</span></div>
+      </div>
+    </div>
+    <div class="hero-art reveal">
+      <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=900&q=80" alt="Auto en carretera" />
+      <div class="hero-card one">
+        <div class="ic" style="background:var(--success)"><i class="fa-solid fa-shield-halved"></i></div>
+        Seguro incluido
+      </div>
+      <div class="hero-card two">
+        <div class="ic" style="background:var(--blue)"><i class="fa-solid fa-bolt"></i></div>
+        Reserva en 2 min
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="stripe"></div>
+
+<section class="section" id="servicios">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="kicker">Por que DGS</div>
+      <h2>Todo lo que necesitas para moverte</h2>
+      <p>Renta pensada tanto para viajeros individuales como para flotillas corporativas.</p>
+    </div>
+    <div class="grid-3">
+      <div class="svc-card reveal reveal-delay-1">
+        <div class="svc-icon" style="background:var(--blue)"><i class="fa-solid fa-car-side"></i></div>
+        <h3>Flota amplia y verificada</h3>
+        <p>Sedanes, SUVs, deportivos y vans revisados antes de cada entrega.</p>
+      </div>
+      <div class="svc-card reveal reveal-delay-2">
+        <div class="svc-icon" style="background:var(--red)"><i class="fa-solid fa-file-signature"></i></div>
+        <h3>Contratos 100% digitales</h3>
+        <p>Firma y paga en linea; recibe tu contrato al instante por correo.</p>
+      </div>
+      <div class="svc-card reveal reveal-delay-3">
+        <div class="svc-icon" style="background:var(--gold)"><i class="fa-solid fa-headset"></i></div>
+        <h3>Soporte 24/7</h3>
+        <p>Asistencia en carretera y atencion al cliente todos los dias del ano.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="flota" style="background:var(--white)">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="kicker">Nuestra flota</div>
+      <h2>Autos disponibles ahora mismo</h2>
+      <p>Estos son algunos de los vehiculos que puedes reservar hoy.</p>
+    </div>
+    <div class="fleet-grid" id="fleet-preview">
+      <div class="skeleton" style="height:280px"></div>
+      <div class="skeleton" style="height:280px"></div>
+      <div class="skeleton" style="height:280px"></div>
+    </div>
+    <div style="text-align:center;margin-top:36px" class="reveal">
+      <a href="register.html" class="btn btn-primary">Crear cuenta y reservar <i class="fa-solid fa-arrow-right"></i></a>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="empresas">
+  <div class="container grid-2" style="align-items:center">
+    <div class="reveal">
+      <div class="kicker">Portal B2B</div>
+      <h2>Renta corporativa para tu empresa</h2>
+      <p style="margin-top:16px">Gestiona reservaciones para tu equipo, consulta contratos y centraliza la facturacion desde un solo panel. Ideal para empresas con flotillas dinamicas.</p>
+      <div class="hero-cta">
+        <a href="register.html" class="btn btn-primary">Registrar mi empresa</a>
+      </div>
+    </div>
+    <div class="reveal reveal-delay-1">
+      <div class="svc-card">
+        <div class="svc-icon" style="background:var(--blue)"><i class="fa-solid fa-building"></i></div>
+        <h3>Panel administrativo dedicado</h3>
+        <p>Control total de vehiculos, reservaciones y usuarios en tiempo real.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="background:var(--blue-dark);color:#fff" id="contacto">
+  <div class="container" style="text-align:center">
+    <h2 class="reveal" style="color:#fff">Listo para tu proximo viaje?</h2>
+    <p class="reveal reveal-delay-1" style="color:rgba(255,255,255,0.8);margin-top:14px">Crea tu cuenta gratis y reserva tu primer auto en minutos.</p>
+    <div class="hero-cta reveal reveal-delay-2" style="justify-content:center;margin-top:30px">
+      <a href="register.html" class="btn btn-accent">Crear cuenta gratis</a>
+      <a href="login.html" class="btn btn-ghost" style="border-color:rgba(255,255,255,0.4);color:#fff">Ya tengo cuenta</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="foot-grid">
+      <div>
+        <a href="index.html" class="brand"><img src="assets/logo.png" alt="DGS Rent a Car" /></a>
+        <p style="margin-top:14px;max-width:280px">Sistema de renta de autos para clientes particulares y empresas.</p>
+      </div>
+      <div>
+        <h4>Producto</h4>
+        <ul><li><a href="#flota">Flota</a></li><li><a href="#servicios">Servicios</a></li><li><a href="#empresas">Empresas</a></li></ul>
+      </div>
+      <div>
+        <h4>Cuenta</h4>
+        <ul><li><a href="login.html">Iniciar sesion</a></li><li><a href="register.html">Crear cuenta</a></li></ul>
+      </div>
+      <div>
+        <h4>Proyecto</h4>
+        <ul><li><a href="https://github.com/danny-svj/DGS-RENT" target="_blank" rel="noopener">Repositorio GitHub</a></li></ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>&copy; 2026 DGS Rent a Car. Proyecto academico — Ingenieria de Software.</span>
+      <span>Hecho por Daniel Gonzalez Salazar</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/config.js"></script>
+<script src="js/api.js"></script>
+<script src="js/animations.js"></script>
+<script>
+  (async function loadFleetPreview() {
+    const el = document.getElementById('fleet-preview');
+    try {
+      const { vehicles } = await DGS.vehicles.list({ status: 'available' });
+      const items = vehicles.slice(0, 3);
+      if (!items.length) {
+        el.innerHTML = '<div class="empty-state"><div class="ic"><i class="fa-solid fa-car"></i></div>No hay vehiculos disponibles por el momento.</div>';
+        return;
+      }
+      el.innerHTML = items
+        .map(
+          (v, i) => `
+        <div class="car-card reveal reveal-delay-${i + 1} in">
+          <div class="car-media"><img src="${v.image_url || 'https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=800&q=80'}" alt="${v.brand} ${v.model}" />
+            <span class="car-badge badge-available">Disponible</span>
+          </div>
+          <div class="car-body">
+            <h4>${v.brand} ${v.model} ${v.year}</h4>
+            <div class="car-meta"><span><i class="fa-solid fa-tag"></i> ${v.category}</span></div>
+            <div class="car-price"><b>${dgsFormatMoney(v.daily_price)}</b><span>por dia</span></div>
+          </div>
+        </div>`
+        )
+        .join('');
+    } catch (err) {
+      el.innerHTML = `<div class="empty-state"><div class="ic"><i class="fa-solid fa-plug-circle-xmark"></i></div>No se pudo cargar la flota. ${err.network ? 'El backend aun no esta desplegado o esta iniciando.' : ''}</div>`;
+    }
+  })();
+</script>
+</body>
+</html>

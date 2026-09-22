@@ -1,0 +1,96 @@
+const user = dgsGuard('user');
+if (user) {
+  document.getElementById('user-name').textContent = user.name;
+  document.getElementById('user-email').textContent = user.email;
+  document.getElementById('avatar').textContent = dgsInitials(user.name);
+}
+
+let selectedVehicle = null;
+
+function vehicleCard(v) {
+  const badgeClass = `badge-${v.status}`;
+  const badgeText = { available: 'Disponible', rented: 'Rentado', maintenance: 'Mantenimiento' }[v.status];
+  const disabled = v.status !== 'available';
+  return `
+    <div class="car-card">
+      <div class="car-media">
+        <img src="${v.image_url || 'https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=800&q=80'}" alt="${v.brand} ${v.model}" />
+        <span class="car-badge ${badgeClass}">${badgeText}</span>
+      </div>
+      <div class="car-body">
+        <h4>${v.brand} ${v.model} ${v.year}</h4>
+        <div class="car-meta"><span><i class="fa-solid fa-tag"></i> ${v.category}</span><span><i class="fa-solid fa-hashtag"></i> ${v.plate}</span></div>
+        <div class="car-price"><b>${dgsFormatMoney(v.daily_price)}</b><span>por dia</span></div>
+        <button class="btn btn-primary btn-block btn-sm" ${disabled ? 'disabled' : ''} onclick='openReserveModal(${JSON.stringify(v)})'>
+          ${disabled ? 'No disponible' : 'Reservar'}
+        </button>
+      </div>
+    </div>`;
+}
+
+async function loadFleet() {
+  const grid = document.getElementById('fleet-grid');
+  const params = {};
+  const category = document.getElementById('f-category').value;
+  const status = document.getElementById('f-status').value;
+  const maxPrice = document.getElementById('f-price').value;
+  if (category) params.category = category;
+  if (status) params.status = status;
+  if (maxPrice) params.maxPrice = maxPrice;
+
+  try {
+    const { vehicles } = await DGS.vehicles.list(params);
+    if (!vehicles.length) {
+      grid.innerHTML = '<div class="empty-state"><div class="ic"><i class="fa-solid fa-car-burst"></i></div>No hay vehiculos que coincidan con tu busqueda.</div>';
+      return;
+    }
+    grid.innerHTML = vehicles.map(vehicleCard).join('');
+  } catch (err) {
+    grid.innerHTML = `<div class="empty-state"><div class="ic"><i class="fa-solid fa-plug-circle-xmark"></i></div>${err.message}</div>`;
+  }
+}
+
+function openReserveModal(vehicle) {
+  selectedVehicle = vehicle;
+  document.getElementById('reserve-vehicle-info').innerHTML = `
+    <div style="display:flex;gap:12px;align-items:center">
+      <img src="${vehicle.image_url}" style="width:70px;height:56px;object-fit:cover;border-radius:10px" />
+      <div><b>${vehicle.brand} ${vehicle.model}</b><br/><span style="color:var(--ink-soft);font-size:0.85rem">${dgsFormatMoney(vehicle.daily_price)} / dia</span></div>
+    </div>`;
+  document.getElementById('reserve-alert').classList.remove('show');
+  document.getElementById('reserve-form').reset();
+  document.getElementById('reserve-modal').classList.add('show');
+}
+function closeReserveModal() {
+  document.getElementById('reserve-modal').classList.remove('show');
+}
+
+document.getElementById('reserve-form').addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const alertEl = document.getElementById('reserve-alert');
+  const btn = document.getElementById('reserve-submit');
+  alertEl.classList.remove('show');
+  btn.disabled = true;
+  btn.innerHTML = '<span class="spinner"></span> Reservando...';
+
+  try {
+    const start_date = document.getElementById('start_date').value;
+    const end_date = document.getElementById('end_date').value;
+    await DGS.reservations.create({ vehicle_id: selectedVehicle.id, start_date, end_date });
+    closeReserveModal();
+    dgsToast('Reservacion creada correctamente', 'success');
+    loadFleet();
+  } catch (err) {
+    alertEl.textContent = err.message;
+    alertEl.classList.add('show');
+  } finally {
+    btn.disabled = false;
+    btn.innerHTML = 'Confirmar reservacion';
+  }
+});
+
+['f-category', 'f-status', 'f-price'].forEach((id) =>
+  document.getElementById(id).addEventListener('change', loadFleet)
+);
+
+loadFleet();

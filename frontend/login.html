@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Iniciar sesion — DGS Rent a Car</title>
+<link rel="icon" href="assets/logo.png" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+<link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+<div class="auth-shell">
+  <div class="auth-visual">
+    <a href="index.html" class="brand"><img src="assets/logo.png" alt="DGS Rent a Car" style="height:46px;filter:brightness(0) invert(1)" /></a>
+    <h2>Bienvenido de vuelta</h2>
+    <p>Accede a tu cuenta para reservar vehiculos o, si eres administrador, para gestionar la flota de DGS Rent a Car.</p>
+    <div class="demo-box">
+      <b>Cuentas de prueba</b><br/>
+      Admin: admin@dgsrent.com / Admin123!<br/>
+      Cliente: cliente@dgsrent.com / Cliente123!
+    </div>
+    <div class="stripe" style="position:absolute;bottom:0;left:0"></div>
+  </div>
+  <div class="auth-form-wrap">
+    <div class="auth-card">
+      <h1>Iniciar sesion</h1>
+      <p class="sub">Ingresa tus datos para continuar.</p>
+      <div class="alert alert-error" id="alert"></div>
+      <form id="login-form">
+        <div class="field">
+          <label for="email">Correo electronico</label>
+          <input type="email" id="email" required placeholder="tu@correo.com" />
+        </div>
+        <div class="field">
+          <label for="password">Contrasena</label>
+          <input type="password" id="password" required placeholder="********" />
+        </div>
+        <button type="submit" class="btn btn-primary btn-block" id="submit-btn">Entrar</button>
+      </form>
+      <p class="form-note">No tienes cuenta? <a href="register.html">Registrate aqui</a></p>
+      <p class="form-note"><a href="index.html">&larr; Volver al inicio</a></p>
+    </div>
+  </div>
+</div>
+
+<script src="js/config.js"></script>
+<script src="js/api.js"></script>
+<script>
+  document.getElementById('login-form').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const alertEl = document.getElementById('alert');
+    const btn = document.getElementById('submit-btn');
+    alertEl.classList.remove('show');
+    btn.disabled = true;
+    btn.innerHTML = '<span class="spinner"></span> Entrando...';
+
+    try {
+      const email = document.getElementById('email').value.trim();
+      const password = document.getElementById('password').value;
+      const { token, user } = await DGS.auth.login({ email, password });
+      DGS.setSession(token, user);
+      window.location.href = user.role === 'admin' ? 'admin/dashboard.html' : 'app/fleet.html';
+    } catch (err) {
+      alertEl.textContent = err.network ? err.message : err.message || 'No se pudo iniciar sesion.';
+      alertEl.classList.add('show');
+      btn.disabled = false;
+      btn.innerHTML = 'Entrar';
+    }
+  });
+</script>
+</body>
+</html>

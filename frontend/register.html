@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Crear cuenta — DGS Rent a Car</title>
+<link rel="icon" href="assets/logo.png" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+<link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+<div class="auth-shell">
+  <div class="auth-visual">
+    <a href="index.html" class="brand"><img src="assets/logo.png" alt="DGS Rent a Car" style="height:46px;filter:brightness(0) invert(1)" /></a>
+    <h2>Unete a DGS Rent a Car</h2>
+    <p>Crea tu cuenta gratis y reserva vehiculos en minutos. Si representas a una empresa, indica el nombre para tu portal B2B.</p>
+    <div class="demo-box">
+      <i class="fa-solid fa-shield-halved"></i>&nbsp; Tus datos y contrasena se guardan cifrados.
+    </div>
+    <div class="stripe" style="position:absolute;bottom:0;left:0"></div>
+  </div>
+  <div class="auth-form-wrap">
+    <div class="auth-card">
+      <h1>Crear cuenta</h1>
+      <p class="sub">Solo toma un minuto.</p>
+      <div class="alert alert-error" id="alert"></div>
+      <form id="register-form">
+        <div class="field">
+          <label for="name">Nombre completo</label>
+          <input type="text" id="name" required placeholder="Ej. Daniel Gonzalez" />
+        </div>
+        <div class="field">
+          <label for="email">Correo electronico</label>
+          <input type="email" id="email" required placeholder="tu@correo.com" />
+        </div>
+        <div class="field">
+          <label for="company">Empresa (opcional, para portal B2B)</label>
+          <input type="text" id="company" placeholder="Ej. Mi Empresa S.A." />
+        </div>
+        <div class="field">
+          <label for="password">Contrasena</label>
+          <input type="password" id="password" required minlength="6" placeholder="Minimo 6 caracteres" />
+        </div>
+        <button type="submit" class="btn btn-primary btn-block" id="submit-btn">Crear cuenta</button>
+      </form>
+      <p class="form-note">Ya tienes cuenta? <a href="login.html">Inicia sesion</a></p>
+      <p class="form-note"><a href="index.html">&larr; Volver al inicio</a></p>
+    </div>
+  </div>
+</div>
+
+<script src="js/config.js"></script>
+<script src="js/api.js"></script>
+<script>
+  document.getElementById('register-form').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const alertEl = document.getElementById('alert');
+    const btn = document.getElementById('submit-btn');
+    alertEl.classList.remove('show');
+    btn.disabled = true;
+    btn.innerHTML = '<span class="spinner"></span> Creando...';
+
+    try {
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const company = document.getElementById('company').value.trim();
+      const password = document.getElementById('password').value;
+      const { token, user } = await DGS.auth.register({ name, email, company, password });
+      DGS.setSession(token, user);
+      window.location.href = 'app/fleet.html';
+    } catch (err) {
+      alertEl.textContent = err.message || 'No se pudo crear la cuenta.';
+      alertEl.classList.add('show');
+      btn.disabled = false;
+      btn.innerHTML = 'Crear cuenta';
+    }
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Flota disponible — DGS Rent a Car</title>
+<link rel="icon" href="../assets/logo.png" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+<link rel="stylesheet" href="../css/style.css" />
+</head>
+<body>
+<div class="app-shell">
+  <aside class="sidebar">
+    <a href="../index.html" class="brand"><img src="../assets/logo.png" alt="DGS Rent a Car" /></a>
+    <a href="fleet.html" class="side-link active"><span class="ic"><i class="fa-solid fa-car"></i></span> Flota</a>
+    <a href="reservations.html" class="side-link"><span class="ic"><i class="fa-solid fa-calendar-check"></i></span> Mis reservaciones</a>
+    <div class="sidebar-footer">
+      <div class="user-chip">
+        <div class="avatar" id="avatar">--</div>
+        <div class="who"><b id="user-name">-</b><span id="user-email">-</span></div>
+      </div>
+      <a href="#" class="side-link" onclick="dgsLogout();return false;" style="margin-top:8px"><span class="ic"><i class="fa-solid fa-right-from-bracket"></i></span> Cerrar sesion</a>
+    </div>
+  </aside>
+
+  <div class="main-area">
+    <div class="topbar">
+      <h1>Flota disponible</h1>
+      <a href="reservations.html" class="btn btn-ghost btn-sm"><i class="fa-solid fa-calendar-check"></i> Mis reservaciones</a>
+    </div>
+    <div class="content">
+      <div class="fleet-toolbar">
+        <div class="filters">
+          <select id="f-category">
+            <option value="">Todas las categorias</option>
+            <option value="Sedan">Sedan</option>
+            <option value="SUV">SUV</option>
+            <option value="Deportivo">Deportivo</option>
+            <option value="Van">Van</option>
+          </select>
+          <select id="f-status">
+            <option value="available">Disponibles</option>
+            <option value="">Todos los estados</option>
+          </select>
+          <input type="number" id="f-price" placeholder="Precio maximo por dia" />
+        </div>
+      </div>
+      <div class="fleet-grid" id="fleet-grid">
+        <div class="skeleton" style="height:280px"></div>
+        <div class="skeleton" style="height:280px"></div>
+        <div class="skeleton" style="height:280px"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal-backdrop" id="reserve-modal">
+  <div class="modal">
+    <div class="modal-head">
+      <h3>Reservar vehiculo</h3>
+      <button class="modal-close" onclick="closeReserveModal()">&times;</button>
+    </div>
+    <div id="reserve-vehicle-info" style="margin-bottom:16px"></div>
+    <form id="reserve-form">
+      <div class="field-row">
+        <div class="field">
+          <label for="start_date">Fecha de inicio</label>
+          <input type="date" id="start_date" required />
+        </div>
+        <div class="field">
+          <label for="end_date">Fecha de fin</label>
+          <input type="date" id="end_date" required />
+        </div>
+      </div>
+      <div class="alert alert-error" id="reserve-alert"></div>
+      <button type="submit" class="btn btn-primary btn-block" id="reserve-submit">Confirmar reservacion</button>
+    </form>
+  </div>
+</div>
+
+<script src="../js/config.js"></script>
+<script src="../js/api.js"></script>
+<script src="js/fleet.js"></script>
+</body>
+</html>

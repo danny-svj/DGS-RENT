@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Reservaciones — Admin DGS Rent a Car</title>
+<link rel="icon" href="../assets/logo.png" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+<link rel="stylesheet" href="../css/style.css" />
+</head>
+<body>
+<div class="app-shell">
+  <aside class="sidebar">
+    <a href="../index.html" class="brand"><img src="../assets/logo.png" alt="DGS Rent a Car" /></a>
+    <a href="dashboard.html" class="side-link"><span class="ic"><i class="fa-solid fa-chart-line"></i></span> Dashboard</a>
+    <a href="vehicles.html" class="side-link"><span class="ic"><i class="fa-solid fa-car"></i></span> Vehiculos</a>
+    <a href="reservations.html" class="side-link active"><span class="ic"><i class="fa-solid fa-calendar-check"></i></span> Reservaciones</a>
+    <a href="users.html" class="side-link"><span class="ic"><i class="fa-solid fa-users"></i></span> Usuarios</a>
+    <div class="sidebar-footer">
+      <div class="user-chip">
+        <div class="avatar" id="avatar">--</div>
+        <div class="who"><b id="user-name">-</b><span id="user-email">-</span></div>
+      </div>
+      <a href="#" class="side-link" onclick="dgsLogout();return false;" style="margin-top:8px"><span class="ic"><i class="fa-solid fa-right-from-bracket"></i></span> Cerrar sesion</a>
+    </div>
+  </aside>
+
+  <div class="main-area">
+    <div class="topbar"><h1>Reservaciones</h1></div>
+    <div class="content">
+      <div class="panel">
+        <div style="overflow-x:auto">
+          <table>
+            <thead><tr><th>Cliente</th><th>Vehiculo</th><th>Del</th><th>Al</th><th>Total</th><th>Estado</th><th></th></tr></thead>
+            <tbody id="res-body"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="../js/config.js"></script>
+<script src="../js/api.js"></script>
+<script src="js/reservations.js"></script>
+</body>
+</html>

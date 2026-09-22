@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Vehiculos — Admin DGS Rent a Car</title>
+<link rel="icon" href="../assets/logo.png" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+<link rel="stylesheet" href="../css/style.css" />
+</head>
+<body>
+<div class="app-shell">
+  <aside class="sidebar">
+    <a href="../index.html" class="brand"><img src="../assets/logo.png" alt="DGS Rent a Car" /></a>
+    <a href="dashboard.html" class="side-link"><span class="ic"><i class="fa-solid fa-chart-line"></i></span> Dashboard</a>
+    <a href="vehicles.html" class="side-link active"><span class="ic"><i class="fa-solid fa-car"></i></span> Vehiculos</a>
+    <a href="reservations.html" class="side-link"><span class="ic"><i class="fa-solid fa-calendar-check"></i></span> Reservaciones</a>
+    <a href="users.html" class="side-link"><span class="ic"><i class="fa-solid fa-users"></i></span> Usuarios</a>
+    <div class="sidebar-footer">
+      <div class="user-chip">
+        <div class="avatar" id="avatar">--</div>
+        <div class="who"><b id="user-name">-</b><span id="user-email">-</span></div>
+      </div>
+      <a href="#" class="side-link" onclick="dgsLogout();return false;" style="margin-top:8px"><span class="ic"><i class="fa-solid fa-right-from-bracket"></i></span> Cerrar sesion</a>
+    </div>
+  </aside>
+
+  <div class="main-area">
+    <div class="topbar">
+      <h1>Vehiculos</h1>
+      <button class="btn btn-primary btn-sm" onclick="openVehicleModal()"><i class="fa-solid fa-plus"></i> Agregar vehiculo</button>
+    </div>
+    <div class="content">
+      <div class="panel">
+        <div style="overflow-x:auto">
+          <table>
+            <thead><tr><th>Vehiculo</th><th>Categoria</th><th>Placa</th><th>Precio/dia</th><th>Estado</th><th></th></tr></thead>
+            <tbody id="vehicles-body"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal-backdrop" id="vehicle-modal">
+  <div class="modal">
+    <div class="modal-head">
+      <h3 id="vehicle-modal-title">Agregar vehiculo</h3>
+      <button class="modal-close" onclick="closeVehicleModal()">&times;</button>
+    </div>
+    <form id="vehicle-form">
+      <input type="hidden" id="v-id" />
+      <div class="field-row">
+        <div class="field"><label>Marca</label><input id="v-brand" required /></div>
+        <div class="field"><label>Modelo</label><input id="v-model" required /></div>
+      </div>
+      <div class="field-row">
+        <div class="field"><label>Anio</label><input type="number" id="v-year" required /></div>
+        <div class="field"><label>Placa</label><input id="v-plate" required /></div>
+      </div>
+      <div class="field-row">
+        <div class="field">
+          <label>Categoria</label>
+          <select id="v-category" required>
+            <option value="Sedan">Sedan</option>
+            <option value="SUV">SUV</option>
+            <option value="Deportivo">Deportivo</option>
+            <option value="Van">Van</option>
+          </select>
+        </div>
+        <div class="field"><label>Precio por dia (MXN)</label><input type="number" id="v-price" required /></div>
+      </div>
+      <div class="field">
+        <label>Estado</label>
+        <select id="v-status">
+          <option value="available">Disponible</option>
+          <option value="rented">Rentado</option>
+          <option value="maintenance">Mantenimiento</option>
+        </select>
+      </div>
+      <div class="field"><label>URL de imagen (opcional)</label><input id="v-image" placeholder="https://..." /></div>
+      <div class="alert alert-error" id="vehicle-alert"></div>
+      <button type="submit" class="btn btn-primary btn-block" id="vehicle-submit">Guardar</button>
+    </form>
+  </div>
+</div>
+
+<script src="../js/config.js"></script>
+<script src="../js/api.js"></script>
+<script src="js/vehicles.js"></script>
+</body>
+</html>
