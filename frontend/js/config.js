@@ -10,3 +10,4 @@ window.DGS_CONFIG = {
     return 'https://dgs-rent-api.onrender.com/api';
   })(),
 };
+
