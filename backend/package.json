@@ -28,10 +28,27 @@
   },
   "jest": {
     "testEnvironment": "node",
-    "coveragePathIgnorePatterns": ["/node_modules/", "src/server.js", "src/db/seed.js"],
+    "coveragePathIgnorePatterns": [
+      "/node_modules/",
+      "src/server.js",
+      "src/db/seed.js"
+    ],
     "coverageThreshold": {
-      "./src/routes/auth.js": { "statements": 80, "branches": 70, "functions": 80, "lines": 80 },
-      "./src/routes/vehicles.js": { "statements": 80, "branches": 70, "functions": 80, "lines": 80 }
+      "./src/routes/auth.js": {
+        "statements": 80,
+        "branches": 70,
+        "functions": 80,
+        "lines": 80
+      },
+      "./src/routes/vehicles.js": {
+        "statements": 80,
+        "branches": 70,
+        "functions": 80,
+        "lines": 80
+      }
     }
+  },
+  "engines": {
+    "node": "22.x"
   }
 }

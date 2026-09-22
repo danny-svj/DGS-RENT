@@ -4,7 +4,7 @@ services:
     runtime: node
     plan: free
     rootDir: backend
-    buildCommand: npm install
+    buildCommand: npm ci
     startCommand: npm start
     healthCheckPath: /api/health
     envVars:
@@ -12,3 +12,5 @@ services:
         generateValue: true
       - key: DB_PATH
         value: ./data.sqlite
+      - key: NODE_VERSION
+        value: 22.17.0
