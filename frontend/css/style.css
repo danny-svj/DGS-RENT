@@ -559,6 +559,25 @@ button { font-family: inherit; cursor: pointer; }
 .badge-admin { background: #e2e6f7; color: var(--blue); }
 .badge-user { background: #d9f7e8; color: var(--success); }
 
+/* ---------- Iconos de tipo de vehiculo (Material Symbols) ---------- */
+.material-symbols-rounded {
+  font-variation-settings: 'FILL' 1, 'wght' 500, 'GRAD' 0, 'opsz' 20;
+  line-height: 1; -webkit-font-smoothing: antialiased;
+  white-space: nowrap; word-break: keep-all;
+}
+.veh-icon-inline {
+  font-size: 1rem; vertical-align: -0.22em; margin-right: 1px;
+  display: inline-block; width: 1.05em; overflow: hidden;
+}
+.car-type-badge {
+  position: absolute; top: 12px; right: 12px; z-index: 2;
+  width: 34px; height: 34px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
+  box-shadow: var(--shadow-sm); color: #fff; transition: transform 0.3s var(--ease);
+  overflow: hidden;
+}
+.car-card:hover .car-type-badge { transform: rotate(-8deg) scale(1.08); }
+.car-type-badge .material-symbols-rounded { font-size: 18px; flex-shrink: 0; }
+
 .car-body { padding: 18px 20px 22px; display: flex; flex-direction: column; gap: 10px; flex: 1; }
 .car-body h4 { font-size: 1.05rem; }
 .car-meta { display: flex; gap: 10px; flex-wrap: wrap; font-size: 0.78rem; color: var(--ink-soft); }

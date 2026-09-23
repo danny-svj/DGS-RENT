@@ -21,7 +21,7 @@ async function loadVehicles() {
         (v) => `
       <tr>
         <td><b>${v.brand} ${v.model}</b><br/><span style="color:var(--ink-soft);font-size:0.8rem">${v.year}</span></td>
-        <td>${v.category}</td>
+        <td>${dgsVehicleIconInline(v.category)} ${v.category}</td>
         <td>${v.plate}</td>
         <td>${dgsFormatMoney(v.daily_price)}</td>
         <td><span class="badge badge-${v.status}">${v.status}</span></td>

@@ -16,10 +16,11 @@ function vehicleCard(v) {
       <div class="car-media">
         <img src="${v.image_url || '../assets/cars/sedan-blue.svg'}" alt="${v.brand} ${v.model}" />
         <span class="car-badge ${badgeClass}">${badgeText}</span>
+        ${dgsVehicleBadge(v.category)}
       </div>
       <div class="car-body">
         <h4>${v.brand} ${v.model} ${v.year}</h4>
-        <div class="car-meta"><span><i class="ph-bold ph-tag"></i> ${v.category}</span><span><i class="ph-bold ph-hash"></i> ${v.plate}</span></div>
+        <div class="car-meta"><span>${dgsVehicleIconInline(v.category)} ${v.category}</span><span><i class="ph-bold ph-hash"></i> ${v.plate}</span></div>
         <div class="car-price"><b>${dgsFormatMoney(v.daily_price)}</b><span>por dia</span></div>
         <button class="btn btn-primary btn-block btn-sm" ${disabled ? 'disabled' : ''} onclick='openReserveModal(${JSON.stringify(v)})'>
           ${disabled ? 'No disponible' : 'Reservar'}
@@ -55,7 +56,7 @@ function openReserveModal(vehicle) {
   document.getElementById('reserve-vehicle-info').innerHTML = `
     <div style="display:flex;gap:12px;align-items:center">
       <img src="${vehicle.image_url || '../assets/cars/sedan-blue.svg'}" style="width:70px;height:56px;object-fit:contain;background:linear-gradient(180deg,#fff,#f5f7ff);border-radius:10px;padding:4px" />
-      <div><b>${vehicle.brand} ${vehicle.model}</b><br/><span style="color:var(--ink-soft);font-size:0.85rem">${dgsFormatMoney(vehicle.daily_price)} / dia</span></div>
+      <div><b>${vehicle.brand} ${vehicle.model}</b><br/><span style="color:var(--ink-soft);font-size:0.85rem">${dgsVehicleIconInline(vehicle.category)} ${vehicle.category} · ${dgsFormatMoney(vehicle.daily_price)} / dia</span></div>
     </div>`;
   document.getElementById('reserve-alert').classList.remove('show');
   document.getElementById('reserve-form').reset();
