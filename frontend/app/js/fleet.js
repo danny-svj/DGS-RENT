@@ -12,9 +12,9 @@ function vehicleCard(v) {
   const badgeText = { available: 'Disponible', rented: 'Rentado', maintenance: 'Mantenimiento' }[v.status];
   const disabled = v.status !== 'available';
   return `
-    <div class="car-card">
+    <div class="car-card tilt">
       <div class="car-media">
-        <img src="${v.image_url || 'https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=800&q=80'}" alt="${v.brand} ${v.model}" />
+        <img src="${v.image_url || '../assets/cars/sedan-blue.svg'}" alt="${v.brand} ${v.model}" />
         <span class="car-badge ${badgeClass}">${badgeText}</span>
       </div>
       <div class="car-body">
@@ -54,7 +54,7 @@ function openReserveModal(vehicle) {
   selectedVehicle = vehicle;
   document.getElementById('reserve-vehicle-info').innerHTML = `
     <div style="display:flex;gap:12px;align-items:center">
-      <img src="${vehicle.image_url}" style="width:70px;height:56px;object-fit:cover;border-radius:10px" />
+      <img src="${vehicle.image_url || '../assets/cars/sedan-blue.svg'}" style="width:70px;height:56px;object-fit:contain;background:linear-gradient(180deg,#fff,#f5f7ff);border-radius:10px;padding:4px" />
       <div><b>${vehicle.brand} ${vehicle.model}</b><br/><span style="color:var(--ink-soft);font-size:0.85rem">${dgsFormatMoney(vehicle.daily_price)} / dia</span></div>
     </div>`;
   document.getElementById('reserve-alert').classList.remove('show');

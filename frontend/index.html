@@ -13,7 +13,7 @@
 
 <nav class="navbar">
   <div class="container">
-    <a href="index.html" class="brand"><img src="assets/logo.png" alt="DGS Rent a Car" /></a>
+    <a href="index.html" class="brand"><img src="assets/logo.png" alt="DGS Rent a Car" class="logo-anim" /></a>
     <ul class="nav-links">
       <li><a href="#flota">Flota</a></li>
       <li><a href="#servicios">Servicios</a></li>
@@ -29,7 +29,7 @@
 
 <header class="hero">
   <div class="container hero-grid">
-    <div>
+    <div class="hero-intro">
       <div class="eyebrow"><span class="dot"></span> Disponibilidad en tiempo real</div>
       <h1>Renta el auto perfecto,<br><span class="hl-blue">a tu</span> <span class="accent">ritmo</span>.</h1>
       <p class="lead">DGS Rent a Car conecta a clientes particulares y empresas con una flota lista para salir a carretera. Reserva en linea, sin filas ni papeleo.</p>
@@ -44,7 +44,14 @@
       </div>
     </div>
     <div class="hero-art reveal">
-      <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=900&q=80" alt="Auto en carretera" />
+      <div class="car-stage">
+        <div class="ring r1"></div>
+        <div class="ring r2"></div>
+        <div class="speed-lines"><span></span><span></span><span></span></div>
+        <div class="car-drive-in">
+          <img class="stage-car" src="assets/cars/deportivo-red.svg" alt="Vehiculo destacado DGS Rent a Car" />
+        </div>
+      </div>
       <div class="hero-card one">
         <div class="ic" style="background:var(--success)"><i class="fa-solid fa-shield-halved"></i></div>
         Seguro incluido
@@ -53,6 +60,31 @@
         <div class="ic" style="background:var(--blue)"><i class="fa-solid fa-bolt"></i></div>
         Reserva en 2 min
       </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="hero-search reveal reveal-delay-2">
+      <div class="hs-field">
+        <label><i class="fa-solid fa-location-dot"></i> Sucursal</label>
+        <select id="hs-city">
+          <option>Ciudad de Mexico</option>
+          <option>Guadalajara</option>
+          <option>Monterrey</option>
+          <option>Cancun</option>
+          <option>Tijuana</option>
+        </select>
+      </div>
+      <div class="hs-field">
+        <label><i class="fa-solid fa-calendar-day"></i> Recogida</label>
+        <input type="date" id="hs-start" />
+      </div>
+      <div class="hs-field">
+        <label><i class="fa-solid fa-calendar-check"></i> Entrega</label>
+        <input type="date" id="hs-end" />
+      </div>
+      <button class="btn btn-accent hs-submit" id="hs-search-btn">
+        <i class="fa-solid fa-magnifying-glass"></i> Buscar disponibilidad
+      </button>
     </div>
   </div>
 </header>
@@ -67,26 +99,68 @@
       <p>Renta pensada tanto para viajeros individuales como para flotillas corporativas.</p>
     </div>
     <div class="grid-3">
-      <div class="svc-card reveal reveal-delay-1">
+      <div class="svc-card tilt reveal reveal-delay-1">
         <div class="svc-icon" style="background:var(--blue)"><i class="fa-solid fa-car-side"></i></div>
         <h3>Flota amplia y verificada</h3>
         <p>Sedanes, SUVs, deportivos y vans revisados antes de cada entrega.</p>
       </div>
-      <div class="svc-card reveal reveal-delay-2">
+      <div class="svc-card tilt reveal reveal-delay-2">
         <div class="svc-icon" style="background:var(--red)"><i class="fa-solid fa-file-signature"></i></div>
         <h3>Contratos 100% digitales</h3>
         <p>Firma y paga en linea; recibe tu contrato al instante por correo.</p>
       </div>
-      <div class="svc-card reveal reveal-delay-3">
+      <div class="svc-card tilt reveal reveal-delay-3">
         <div class="svc-icon" style="background:var(--gold)"><i class="fa-solid fa-headset"></i></div>
         <h3>Soporte 24/7</h3>
         <p>Asistencia en carretera y atencion al cliente todos los dias del ano.</p>
       </div>
     </div>
+    <div class="trust-row reveal reveal-delay-4" style="margin-top:52px">
+      <i class="fa-brands fa-cc-visa" title="Visa"></i>
+      <i class="fa-brands fa-cc-mastercard" title="Mastercard"></i>
+      <i class="fa-brands fa-cc-amex" title="American Express"></i>
+      <i class="fa-brands fa-cc-paypal" title="PayPal"></i>
+      <i class="fa-brands fa-apple-pay" title="Apple Pay"></i>
+      <i class="fa-brands fa-google-pay" title="Google Pay"></i>
+    </div>
   </div>
 </section>
 
-<section class="section" id="flota" style="background:var(--white)">
+<section class="section" style="background:var(--white)">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="kicker">Como funciona</div>
+      <h2>Reserva en 3 pasos, sin complicaciones</h2>
+      <p>El mismo proceso simple que usan las grandes renteras, pensado para que salgas a carretera mas rapido.</p>
+    </div>
+    <div class="steps">
+      <div class="step-card reveal-left reveal">
+        <div class="step-num">1</div>
+        <h3>Elige tu sucursal y fechas</h3>
+        <p>Selecciona ciudad, fecha de recogida y de entrega en el buscador.</p>
+      </div>
+      <div class="step-card reveal-zoom reveal">
+        <div class="step-num">2</div>
+        <h3>Reserva tu vehiculo</h3>
+        <p>Crea tu cuenta, elige el auto ideal para ti y confirma en linea.</p>
+      </div>
+      <div class="step-card reveal-right reveal">
+        <div class="step-num">3</div>
+        <h3>Recoge y disfruta el viaje</h3>
+        <p>Firma tu contrato digital, recoge las llaves y arranca tu recorrido.</p>
+      </div>
+    </div>
+    <div class="city-chips reveal reveal-delay-1">
+      <div class="city-chip"><i class="fa-solid fa-location-dot"></i> Ciudad de Mexico</div>
+      <div class="city-chip"><i class="fa-solid fa-location-dot"></i> Guadalajara</div>
+      <div class="city-chip"><i class="fa-solid fa-location-dot"></i> Monterrey</div>
+      <div class="city-chip"><i class="fa-solid fa-location-dot"></i> Cancun</div>
+      <div class="city-chip"><i class="fa-solid fa-location-dot"></i> Tijuana</div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="flota" style="background:var(--cloud)">
   <div class="container">
     <div class="section-head reveal">
       <div class="kicker">Nuestra flota</div>
@@ -115,10 +189,46 @@
       </div>
     </div>
     <div class="reveal reveal-delay-1">
-      <div class="svc-card">
+      <div class="svc-card tilt">
         <div class="svc-icon" style="background:var(--blue)"><i class="fa-solid fa-building"></i></div>
         <h3>Panel administrativo dedicado</h3>
         <p>Control total de vehiculos, reservaciones y usuarios en tiempo real.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="background:var(--white)">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="kicker">Clientes DGS</div>
+      <h2>Lo que dicen quienes ya rentaron con nosotros</h2>
+      <p>Experiencias de clientes particulares y empresariales en nuestras sucursales.</p>
+    </div>
+    <div class="testi-grid">
+      <div class="testi-card tilt reveal reveal-delay-1">
+        <div class="testi-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+        <p class="testi-quote">"Reserve un SUV para un viaje familiar en menos de 5 minutos desde el celular. El auto estaba impecable y el proceso de entrega fue muy rapido."</p>
+        <div class="testi-person">
+          <div class="testi-avatar" style="background:var(--blue)">MR</div>
+          <div><b>Mariana R.</b><span>Cliente particular — Guadalajara</span></div>
+        </div>
+      </div>
+      <div class="testi-card tilt reveal reveal-delay-2">
+        <div class="testi-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+        <p class="testi-quote">"Gestionamos la flotilla de toda nuestra fuerza de ventas desde el panel B2B. La facturacion centralizada nos ahorra horas cada mes."</p>
+        <div class="testi-person">
+          <div class="testi-avatar" style="background:var(--red)">JC</div>
+          <div><b>Jorge C.</b><span>Gerente de operaciones — Monterrey</span></div>
+        </div>
+      </div>
+      <div class="testi-card tilt reveal reveal-delay-3">
+        <div class="testi-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i></div>
+        <p class="testi-quote">"El soporte 24/7 me salvo el viaje cuando tuve una llanta ponchada en carretera. Llegaron rapido y me dieron un auto de reemplazo."</p>
+        <div class="testi-person">
+          <div class="testi-avatar" style="background:var(--gold)">LP</div>
+          <div><b>Luis P.</b><span>Cliente particular — Ciudad de Mexico</span></div>
+        </div>
       </div>
     </div>
   </div>
@@ -139,7 +249,7 @@
   <div class="container">
     <div class="foot-grid">
       <div>
-        <a href="index.html" class="brand"><img src="assets/logo.png" alt="DGS Rent a Car" /></a>
+        <a href="index.html" class="brand"><img src="assets/logo.png" alt="DGS Rent a Car" class="logo-anim" /></a>
         <p style="margin-top:14px;max-width:280px">Sistema de renta de autos para clientes particulares y empresas.</p>
       </div>
       <div>
@@ -178,8 +288,8 @@
       el.innerHTML = items
         .map(
           (v, i) => `
-        <div class="car-card reveal reveal-delay-${i + 1} in">
-          <div class="car-media"><img src="${v.image_url || 'https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=800&q=80'}" alt="${v.brand} ${v.model}" />
+        <div class="car-card tilt reveal reveal-delay-${i + 1} in">
+          <div class="car-media"><img src="${v.image_url || 'assets/cars/sedan-blue.svg'}" alt="${v.brand} ${v.model}" />
             <span class="car-badge badge-available">Disponible</span>
           </div>
           <div class="car-body">

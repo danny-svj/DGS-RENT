@@ -61,13 +61,14 @@ function seed() {
       `INSERT INTO vehicles (brand, model, year, category, plate, daily_price, status, image_url)
        VALUES (?, ?, ?, ?, ?, ?, ?, ?)`
     );
+    const ASSET_BASE = 'https://danny-svj.github.io/DGS-RENT/assets/cars';
     const fleet = [
-      ['Nissan', 'Versa', 2023, 'Sedan', 'DGS-001', 650, 'available', 'https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=800&q=80'],
-      ['Chevrolet', 'Aveo', 2022, 'Sedan', 'DGS-002', 600, 'available', 'https://images.unsplash.com/photo-1541899481282-d53bffe3c35d?auto=format&fit=crop&w=800&q=80'],
-      ['Toyota', 'RAV4', 2023, 'SUV', 'DGS-003', 1150, 'available', 'https://images.unsplash.com/photo-1518987048-93e29699e79a?auto=format&fit=crop&w=800&q=80'],
-      ['Honda', 'CR-V', 2022, 'SUV', 'DGS-004', 1100, 'rented', 'https://images.unsplash.com/photo-1568844293986-8d0400bd4745?auto=format&fit=crop&w=800&q=80'],
-      ['Ford', 'Mustang', 2023, 'Deportivo', 'DGS-005', 1900, 'available', 'https://images.unsplash.com/photo-1584345604476-8ec5e12e42dd?auto=format&fit=crop&w=800&q=80'],
-      ['Mercedes-Benz', 'Sprinter', 2021, 'Van', 'DGS-006', 1600, 'maintenance', 'https://images.unsplash.com/photo-1601362840469-51e4d8d58785?auto=format&fit=crop&w=800&q=80'],
+      ['Nissan', 'Versa', 2023, 'Sedan', 'DGS-001', 650, 'available', `${ASSET_BASE}/sedan-blue.svg`],
+      ['Chevrolet', 'Aveo', 2022, 'Sedan', 'DGS-002', 600, 'available', `${ASSET_BASE}/sedan-red.svg`],
+      ['Toyota', 'RAV4', 2023, 'SUV', 'DGS-003', 1150, 'available', `${ASSET_BASE}/suv-silver.svg`],
+      ['Honda', 'CR-V', 2022, 'SUV', 'DGS-004', 1100, 'rented', `${ASSET_BASE}/suv-dark.svg`],
+      ['Ford', 'Mustang', 2023, 'Deportivo', 'DGS-005', 1900, 'available', `${ASSET_BASE}/deportivo-red.svg`],
+      ['Mercedes-Benz', 'Sprinter', 2021, 'Van', 'DGS-006', 1600, 'maintenance', `${ASSET_BASE}/van-white.svg`],
     ];
     fleet.forEach((v) => insertVehicle.run(...v));
   }
