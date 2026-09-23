@@ -7,6 +7,9 @@
 <meta name="description" content="DGS Rent a Car: renta de vehiculos para clientes particulares y empresas. Reserva en linea en minutos." />
 <link rel="icon" href="assets/logo.png" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+<script src="https://unpkg.com/@phosphor-icons/web@2.1.1"></script>
+<link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
+<link rel="stylesheet" href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css" />
 <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
@@ -36,13 +39,13 @@
       <h1>Renta el auto perfecto,<br><span class="hl-blue">a tu</span> <span class="accent">ritmo</span>.</h1>
       <p class="lead">DGS Rent a Car conecta a clientes particulares y empresas con una flota lista para salir a carretera. Reserva en linea, sin filas ni papeleo.</p>
       <div class="hero-cta">
-        <a href="register.html" class="btn btn-accent">Reservar ahora <i class="fa-solid fa-arrow-right"></i></a>
+        <a href="register.html" class="btn btn-accent">Reservar ahora <i class="ph-bold ph-arrow-right"></i></a>
         <a href="#flota" class="btn btn-ghost">Ver flota disponible</a>
       </div>
       <div class="stat-row">
-        <div class="stat"><b data-count="120" data-suffix="+">0</b><span>Vehiculos en flota</span></div>
-        <div class="stat"><b data-count="18" data-suffix="+">0</b><span>Ciudades cubiertas</span></div>
-        <div class="stat"><b data-count="4800" data-suffix="+">0</b><span>Reservas completadas</span></div>
+        <div class="stat" data-aos="zoom-in" data-aos-delay="100"><b data-count="120" data-suffix="+">0</b><span>Vehiculos en flota</span></div>
+        <div class="stat" data-aos="zoom-in" data-aos-delay="200"><b data-count="18" data-suffix="+">0</b><span>Ciudades cubiertas</span></div>
+        <div class="stat" data-aos="zoom-in" data-aos-delay="300"><b data-count="4800" data-suffix="+">0</b><span>Reservas completadas</span></div>
       </div>
     </div>
     <div class="hero-art reveal">
@@ -52,12 +55,12 @@
           <source src="assets/video/hero-drive.mp4" type="video/mp4" />
         </video>
       </div>
-      <div class="hero-card one">
-        <div class="ic" style="background:var(--success)"><i class="fa-solid fa-shield-halved"></i></div>
+      <div class="hero-card one" data-aos="fade-right" data-aos-delay="300" data-aos-duration="800">
+        <div class="ic" style="background:var(--success)"><i class="ph-duotone ph-shield-check"></i></div>
         Seguro incluido
       </div>
-      <div class="hero-card two">
-        <div class="ic" style="background:var(--blue)"><i class="fa-solid fa-bolt"></i></div>
+      <div class="hero-card two" data-aos="fade-left" data-aos-delay="500" data-aos-duration="800">
+        <div class="ic" style="background:var(--blue)"><i class="ph-fill ph-lightning"></i></div>
         Reserva en 2 min
       </div>
     </div>
@@ -65,7 +68,7 @@
   <div class="container">
     <div class="hero-search reveal reveal-delay-2">
       <div class="hs-field">
-        <label><i class="fa-solid fa-location-dot"></i> Sucursal</label>
+        <label><i class="ph-bold ph-map-pin"></i> Sucursal</label>
         <select id="hs-city">
           <option>Ciudad de Mexico</option>
           <option>Guadalajara</option>
@@ -75,15 +78,15 @@
         </select>
       </div>
       <div class="hs-field">
-        <label><i class="fa-solid fa-calendar-day"></i> Recogida</label>
+        <label><i class="ph-bold ph-calendar"></i> Recogida</label>
         <input type="date" id="hs-start" />
       </div>
       <div class="hs-field">
-        <label><i class="fa-solid fa-calendar-check"></i> Entrega</label>
+        <label><i class="ph-bold ph-calendar-check"></i> Entrega</label>
         <input type="date" id="hs-end" />
       </div>
       <button class="btn btn-accent hs-submit" id="hs-search-btn">
-        <i class="fa-solid fa-magnifying-glass"></i> Buscar disponibilidad
+        <i class="ph-bold ph-magnifying-glass"></i> Buscar disponibilidad
       </button>
     </div>
   </div>
@@ -100,28 +103,28 @@
       <p style="margin-top:16px">DGS Rent a Car nacio con una idea simple: rentar un auto no deberia sentirse complicado. Desde nuestras primeras sucursales hemos crecido acompanando a familias, viajeros de negocios y empresas que necesitan movilidad confiable, sin letras chiquitas ni sorpresas.</p>
       <p style="margin-top:14px">Hoy seguimos operando con el mismo principio: flota verificada, procesos 100% digitales y un equipo listo para resolver cualquier imprevisto en el camino.</p>
       <div class="hero-cta">
-        <a href="#flota" class="btn btn-primary">Conoce la flota <i class="fa-solid fa-arrow-right"></i></a>
+        <a href="#flota" class="btn btn-primary">Conoce la flota <i class="ph-bold ph-arrow-right"></i></a>
         <a href="#contacto" class="btn btn-ghost">Hablar con nosotros</a>
       </div>
     </div>
     <div class="values-grid reveal-right reveal">
-      <div class="value-card tilt">
-        <div class="svc-icon" style="background:var(--blue)"><i class="fa-solid fa-handshake"></i></div>
+      <div class="value-card tilt" data-aos="flip-up" data-aos-delay="0">
+        <div class="svc-icon" style="background:var(--blue)"><i class="ph-bold ph-handshake"></i></div>
         <h3>Confianza</h3>
         <p>Contratos claros y flota verificada antes de cada entrega.</p>
       </div>
-      <div class="value-card tilt">
-        <div class="svc-icon" style="background:var(--red)"><i class="fa-solid fa-bolt"></i></div>
+      <div class="value-card tilt" data-aos="flip-up" data-aos-delay="120">
+        <div class="svc-icon" style="background:var(--red)"><i class="ph-fill ph-lightning"></i></div>
         <h3>Rapidez</h3>
         <p>Reserva y recoge tu auto en minutos, sin filas.</p>
       </div>
-      <div class="value-card tilt">
-        <div class="svc-icon" style="background:var(--gold)"><i class="fa-solid fa-shield-heart"></i></div>
+      <div class="value-card tilt" data-aos="flip-up" data-aos-delay="240">
+        <div class="svc-icon" style="background:var(--gold)"><i class="ph-duotone ph-shield-check"></i></div>
         <h3>Seguridad</h3>
         <p>Asistencia en carretera y seguro incluido en cada renta.</p>
       </div>
-      <div class="value-card tilt">
-        <div class="svc-icon" style="background:var(--success)"><i class="fa-solid fa-leaf"></i></div>
+      <div class="value-card tilt" data-aos="flip-up" data-aos-delay="360">
+        <div class="svc-icon" style="background:var(--success)"><i class="ph-bold ph-leaf"></i></div>
         <h3>Compromiso</h3>
         <p>Mantenimiento constante para un viaje siempre seguro.</p>
       </div>
@@ -139,28 +142,28 @@
     </div>
     <div class="grid-3">
       <div class="svc-card tilt reveal reveal-delay-1">
-        <div class="svc-icon" style="background:var(--blue)"><i class="fa-solid fa-car-side"></i></div>
+        <div class="svc-icon" style="background:var(--blue)"><i class="ph-bold ph-car-profile"></i></div>
         <h3>Flota amplia y verificada</h3>
         <p>Sedanes, SUVs, deportivos y vans revisados antes de cada entrega.</p>
       </div>
       <div class="svc-card tilt reveal reveal-delay-2">
-        <div class="svc-icon" style="background:var(--red)"><i class="fa-solid fa-file-signature"></i></div>
+        <div class="svc-icon" style="background:var(--red)"><i class="ph-bold ph-signature"></i></div>
         <h3>Contratos 100% digitales</h3>
         <p>Firma y paga en linea; recibe tu contrato al instante por correo.</p>
       </div>
       <div class="svc-card tilt reveal reveal-delay-3">
-        <div class="svc-icon" style="background:var(--gold)"><i class="fa-solid fa-headset"></i></div>
+        <div class="svc-icon" style="background:var(--gold)"><i class="ph-bold ph-headset"></i></div>
         <h3>Soporte 24/7</h3>
         <p>Asistencia en carretera y atencion al cliente todos los dias del ano.</p>
       </div>
     </div>
     <div class="trust-row reveal reveal-delay-4" style="margin-top:52px">
-      <i class="fa-brands fa-cc-visa" title="Visa"></i>
-      <i class="fa-brands fa-cc-mastercard" title="Mastercard"></i>
-      <i class="fa-brands fa-cc-amex" title="American Express"></i>
-      <i class="fa-brands fa-cc-paypal" title="PayPal"></i>
-      <i class="fa-brands fa-apple-pay" title="Apple Pay"></i>
-      <i class="fa-brands fa-google-pay" title="Google Pay"></i>
+      <i class="fa-brands fa-cc-visa" title="Visa" data-aos="flip-left" data-aos-delay="0"></i>
+      <i class="fa-brands fa-cc-mastercard" title="Mastercard" data-aos="flip-left" data-aos-delay="80"></i>
+      <i class="fa-brands fa-cc-amex" title="American Express" data-aos="flip-left" data-aos-delay="160"></i>
+      <i class="fa-brands fa-cc-paypal" title="PayPal" data-aos="flip-left" data-aos-delay="240"></i>
+      <i class="fa-brands fa-apple-pay" title="Apple Pay" data-aos="flip-left" data-aos-delay="320"></i>
+      <i class="fa-brands fa-google-pay" title="Google Pay" data-aos="flip-left" data-aos-delay="400"></i>
     </div>
   </div>
 </section>
@@ -191,23 +194,24 @@
       </div>
     </div>
     <div class="city-marquee reveal reveal-delay-1">
-      <div class="city-track">
-        <div class="city-chip"><i class="fa-solid fa-location-dot"></i> Ciudad de Mexico</div>
-        <div class="city-chip"><i class="fa-solid fa-location-dot"></i> Guadalajara</div>
-        <div class="city-chip"><i class="fa-solid fa-location-dot"></i> Monterrey</div>
-        <div class="city-chip"><i class="fa-solid fa-location-dot"></i> Cancun</div>
-        <div class="city-chip"><i class="fa-solid fa-location-dot"></i> Tijuana</div>
-        <div class="city-chip"><i class="fa-solid fa-location-dot"></i> Puebla</div>
-        <div class="city-chip"><i class="fa-solid fa-location-dot"></i> Merida</div>
-        <div class="city-chip"><i class="fa-solid fa-location-dot"></i> Ciudad de Mexico</div>
-        <div class="city-chip"><i class="fa-solid fa-location-dot"></i> Guadalajara</div>
-        <div class="city-chip"><i class="fa-solid fa-location-dot"></i> Monterrey</div>
-        <div class="city-chip"><i class="fa-solid fa-location-dot"></i> Cancun</div>
-        <div class="city-chip"><i class="fa-solid fa-location-dot"></i> Tijuana</div>
-        <div class="city-chip"><i class="fa-solid fa-location-dot"></i> Puebla</div>
-        <div class="city-chip"><i class="fa-solid fa-location-dot"></i> Merida</div>
+      <div class="city-track" id="city-track">
+        <div class="city-chip" data-city="Ciudad de Mexico" data-lat="19.4326" data-lng="-99.1332" tabindex="0" role="button" aria-label="Ver mapa 3D de Ciudad de Mexico"><i class="ph-bold ph-map-pin"></i> Ciudad de Mexico <i class="ph-bold ph-cube"></i></div>
+        <div class="city-chip" data-city="Guadalajara" data-lat="20.6597" data-lng="-103.3496" tabindex="0" role="button" aria-label="Ver mapa 3D de Guadalajara"><i class="ph-bold ph-map-pin"></i> Guadalajara <i class="ph-bold ph-cube"></i></div>
+        <div class="city-chip" data-city="Monterrey" data-lat="25.6866" data-lng="-100.3161" tabindex="0" role="button" aria-label="Ver mapa 3D de Monterrey"><i class="ph-bold ph-map-pin"></i> Monterrey <i class="ph-bold ph-cube"></i></div>
+        <div class="city-chip" data-city="Cancun" data-lat="21.1619" data-lng="-86.8515" tabindex="0" role="button" aria-label="Ver mapa 3D de Cancun"><i class="ph-bold ph-map-pin"></i> Cancun <i class="ph-bold ph-cube"></i></div>
+        <div class="city-chip" data-city="Tijuana" data-lat="32.5149" data-lng="-117.0382" tabindex="0" role="button" aria-label="Ver mapa 3D de Tijuana"><i class="ph-bold ph-map-pin"></i> Tijuana <i class="ph-bold ph-cube"></i></div>
+        <div class="city-chip" data-city="Puebla" data-lat="19.0414" data-lng="-98.2063" tabindex="0" role="button" aria-label="Ver mapa 3D de Puebla"><i class="ph-bold ph-map-pin"></i> Puebla <i class="ph-bold ph-cube"></i></div>
+        <div class="city-chip" data-city="Merida" data-lat="20.9674" data-lng="-89.5926" tabindex="0" role="button" aria-label="Ver mapa 3D de Merida"><i class="ph-bold ph-map-pin"></i> Merida <i class="ph-bold ph-cube"></i></div>
+        <div class="city-chip" data-city="Ciudad de Mexico" data-lat="19.4326" data-lng="-99.1332" tabindex="0" role="button" aria-label="Ver mapa 3D de Ciudad de Mexico"><i class="ph-bold ph-map-pin"></i> Ciudad de Mexico <i class="ph-bold ph-cube"></i></div>
+        <div class="city-chip" data-city="Guadalajara" data-lat="20.6597" data-lng="-103.3496" tabindex="0" role="button" aria-label="Ver mapa 3D de Guadalajara"><i class="ph-bold ph-map-pin"></i> Guadalajara <i class="ph-bold ph-cube"></i></div>
+        <div class="city-chip" data-city="Monterrey" data-lat="25.6866" data-lng="-100.3161" tabindex="0" role="button" aria-label="Ver mapa 3D de Monterrey"><i class="ph-bold ph-map-pin"></i> Monterrey <i class="ph-bold ph-cube"></i></div>
+        <div class="city-chip" data-city="Cancun" data-lat="21.1619" data-lng="-86.8515" tabindex="0" role="button" aria-label="Ver mapa 3D de Cancun"><i class="ph-bold ph-map-pin"></i> Cancun <i class="ph-bold ph-cube"></i></div>
+        <div class="city-chip" data-city="Tijuana" data-lat="32.5149" data-lng="-117.0382" tabindex="0" role="button" aria-label="Ver mapa 3D de Tijuana"><i class="ph-bold ph-map-pin"></i> Tijuana <i class="ph-bold ph-cube"></i></div>
+        <div class="city-chip" data-city="Puebla" data-lat="19.0414" data-lng="-98.2063" tabindex="0" role="button" aria-label="Ver mapa 3D de Puebla"><i class="ph-bold ph-map-pin"></i> Puebla <i class="ph-bold ph-cube"></i></div>
+        <div class="city-chip" data-city="Merida" data-lat="20.9674" data-lng="-89.5926" tabindex="0" role="button" aria-label="Ver mapa 3D de Merida"><i class="ph-bold ph-map-pin"></i> Merida <i class="ph-bold ph-cube"></i></div>
       </div>
     </div>
+    <p class="reveal reveal-delay-2" style="text-align:center;margin-top:14px;font-size:0.82rem;color:var(--ink-soft)"><i class="ph-bold ph-cursor-click"></i> Haz clic en cualquier ciudad para explorar el mapa 3D de la sucursal</p>
   </div>
 </section>
 
@@ -225,7 +229,7 @@
       <div class="skeleton" style="height:280px"></div>
     </div>
     <div style="text-align:center;margin-top:36px" class="reveal">
-      <a href="register.html" class="btn btn-primary">Crear cuenta y reservar <i class="fa-solid fa-arrow-right"></i></a>
+      <a href="register.html" class="btn btn-primary">Crear cuenta y reservar <i class="ph-bold ph-arrow-right"></i></a>
     </div>
   </div>
 </section>
@@ -243,7 +247,7 @@
     </div>
     <div class="reveal reveal-delay-1">
       <div class="svc-card tilt">
-        <div class="svc-icon" style="background:var(--blue)"><i class="fa-solid fa-building"></i></div>
+        <div class="svc-icon" style="background:var(--blue)"><i class="ph-bold ph-buildings"></i></div>
         <h3>Panel administrativo dedicado</h3>
         <p>Control total de vehiculos, reservaciones y usuarios en tiempo real.</p>
       </div>
@@ -263,7 +267,7 @@
     <div class="rating-summary reveal">
       <div class="rating-score">
         <b data-count="4.8" data-decimals="1">0.0</b>
-        <div class="rating-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i></div>
+        <div class="rating-stars"><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star-half"></i></div>
         <span>216 reseñas verificadas</span>
       </div>
       <div class="rating-bars reveal">
@@ -278,39 +282,39 @@
     <div class="testi-grid">
       <div class="testi-card tilt reveal reveal-delay-1">
         <div class="testi-top">
-          <div class="testi-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
-          <span class="testi-verified"><i class="fa-solid fa-circle-check"></i> Verificada</span>
+          <div class="testi-stars"><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i></div>
+          <span class="testi-verified"><i class="ph-fill ph-check-circle"></i> Verificada</span>
         </div>
         <p class="testi-quote">"Reserve un SUV para un viaje familiar en menos de 5 minutos desde el celular. El auto estaba impecable y el proceso de entrega fue muy rapido."</p>
         <div class="testi-person">
           <div class="testi-avatar" style="background:var(--blue)">MR</div>
           <div><b>Mariana R.</b><span>Cliente particular — Guadalajara</span></div>
         </div>
-        <div class="testi-helpful"><i class="fa-regular fa-thumbs-up"></i> Util (12) · hace 2 semanas</div>
+        <div class="testi-helpful"><i class="ph-bold ph-thumbs-up"></i> Util (12) · hace 2 semanas</div>
       </div>
       <div class="testi-card tilt reveal reveal-delay-2">
         <div class="testi-top">
-          <div class="testi-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
-          <span class="testi-verified"><i class="fa-solid fa-circle-check"></i> Verificada</span>
+          <div class="testi-stars"><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i></div>
+          <span class="testi-verified"><i class="ph-fill ph-check-circle"></i> Verificada</span>
         </div>
         <p class="testi-quote">"Gestionamos la flotilla de toda nuestra fuerza de ventas desde el panel B2B. La facturacion centralizada nos ahorra horas cada mes."</p>
         <div class="testi-person">
           <div class="testi-avatar" style="background:var(--red)">JC</div>
           <div><b>Jorge C.</b><span>Gerente de operaciones — Monterrey</span></div>
         </div>
-        <div class="testi-helpful"><i class="fa-regular fa-thumbs-up"></i> Util (8) · hace 1 mes</div>
+        <div class="testi-helpful"><i class="ph-bold ph-thumbs-up"></i> Util (8) · hace 1 mes</div>
       </div>
       <div class="testi-card tilt reveal reveal-delay-3">
         <div class="testi-top">
-          <div class="testi-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i></div>
-          <span class="testi-verified"><i class="fa-solid fa-circle-check"></i> Verificada</span>
+          <div class="testi-stars"><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star-half"></i></div>
+          <span class="testi-verified"><i class="ph-fill ph-check-circle"></i> Verificada</span>
         </div>
         <p class="testi-quote">"El soporte 24/7 me salvo el viaje cuando tuve una llanta ponchada en carretera. Llegaron rapido y me dieron un auto de reemplazo."</p>
         <div class="testi-person">
           <div class="testi-avatar" style="background:var(--gold)">LP</div>
           <div><b>Luis P.</b><span>Cliente particular — Ciudad de Mexico</span></div>
         </div>
-        <div class="testi-helpful"><i class="fa-regular fa-thumbs-up"></i> Util (5) · hace 3 semanas</div>
+        <div class="testi-helpful"><i class="ph-bold ph-thumbs-up"></i> Util (5) · hace 3 semanas</div>
       </div>
     </div>
   </div>
@@ -330,19 +334,19 @@
 <footer>
   <div class="container">
     <div class="foot-grid">
-      <div>
+      <div data-aos="fade-up" data-aos-delay="0">
         <a href="index.html" class="brand"><img src="assets/logo.png" alt="DGS Rent a Car" class="logo-anim" /></a>
         <p style="margin-top:14px;max-width:280px">Sistema de renta de autos para clientes particulares y empresas.</p>
       </div>
-      <div>
+      <div data-aos="fade-up" data-aos-delay="100">
         <h4>Producto</h4>
         <ul><li><a href="#flota">Flota</a></li><li><a href="#servicios">Servicios</a></li><li><a href="#empresas">Empresas</a></li></ul>
       </div>
-      <div>
+      <div data-aos="fade-up" data-aos-delay="200">
         <h4>Cuenta</h4>
         <ul><li><a href="login.html">Iniciar sesion</a></li><li><a href="register.html">Crear cuenta</a></li></ul>
       </div>
-      <div>
+      <div data-aos="fade-up" data-aos-delay="300">
         <h4>Proyecto</h4>
         <ul><li><a href="https://github.com/danny-svj/DGS-RENT" target="_blank" rel="noopener">Repositorio GitHub</a></li></ul>
       </div>
@@ -354,9 +358,23 @@
   </div>
 </footer>
 
+<div class="modal-backdrop" id="map-modal-backdrop">
+  <div class="modal map-modal">
+    <div class="modal-head">
+      <h3><i class="ph-bold ph-map-pin"></i> <span class="map-modal-titles"><b id="map-modal-title">Sucursal DGS</b><span id="map-modal-sub">Explora la zona en 3D — arrastra para rotar, rueda para acercar</span></span></h3>
+      <button class="modal-close" id="map-modal-close" aria-label="Cerrar mapa" type="button"><i class="ph-bold ph-x"></i></button>
+    </div>
+    <div id="map-3d" class="loading"></div>
+    <div class="map-modal-hint"><i class="ph-bold ph-info"></i> Vista 3D con MapLibre GL · manten click + arrastra para inclinar y girar la camara</div>
+  </div>
+</div>
+
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
 <script src="js/config.js"></script>
 <script src="js/api.js"></script>
 <script src="js/animations.js"></script>
+<script src="js/city-map.js"></script>
 <script>
   (async function loadFleetPreview() {
     const el = document.getElementById('fleet-preview');
@@ -364,7 +382,7 @@
       const { vehicles } = await DGS.vehicles.list({ status: 'available' });
       const items = vehicles.slice(0, 3);
       if (!items.length) {
-        el.innerHTML = '<div class="empty-state"><div class="ic"><i class="fa-solid fa-car"></i></div>No hay vehiculos disponibles por el momento.</div>';
+        el.innerHTML = '<div class="empty-state"><div class="ic"><i class="ph-bold ph-car"></i></div>No hay vehiculos disponibles por el momento.</div>';
         return;
       }
       el.innerHTML = items
@@ -376,14 +394,14 @@
           </div>
           <div class="car-body">
             <h4>${v.brand} ${v.model} ${v.year}</h4>
-            <div class="car-meta"><span><i class="fa-solid fa-tag"></i> ${v.category}</span></div>
+            <div class="car-meta"><span><i class="ph-bold ph-tag"></i> ${v.category}</span></div>
             <div class="car-price"><b>${dgsFormatMoney(v.daily_price)}</b><span>por dia</span></div>
           </div>
         </div>`
         )
         .join('');
     } catch (err) {
-      el.innerHTML = `<div class="empty-state"><div class="ic"><i class="fa-solid fa-plug-circle-xmark"></i></div>No se pudo cargar la flota. ${err.network ? 'El backend aun no esta desplegado o esta iniciando.' : ''}</div>`;
+      el.innerHTML = `<div class="empty-state"><div class="ic"><i class="ph-bold ph-plug"></i></div>No se pudo cargar la flota. ${err.network ? 'El backend aun no esta desplegado o esta iniciando.' : ''}</div>`;
     }
   })();
 </script>

@@ -26,10 +26,10 @@ async function loadDashboard() {
       .reduce((sum, r) => sum + r.total_price, 0);
 
     kpiGrid.innerHTML = `
-      <div class="kpi-card"><div class="ic" style="background:var(--blue)"><i class="fa-solid fa-car"></i></div><b>${vehicles.length}</b><span>Vehiculos totales</span></div>
-      <div class="kpi-card"><div class="ic" style="background:var(--success)"><i class="fa-solid fa-circle-check"></i></div><b>${available}</b><span>Disponibles</span></div>
-      <div class="kpi-card"><div class="ic" style="background:var(--gold)"><i class="fa-solid fa-key"></i></div><b>${rented}</b><span>Rentados ahora</span></div>
-      <div class="kpi-card"><div class="ic" style="background:var(--red)"><i class="fa-solid fa-users"></i></div><b>${users.length}</b><span>Usuarios registrados</span></div>
+      <div class="kpi-card"><div class="ic" style="background:var(--blue)"><i class="ph-bold ph-car"></i></div><b>${vehicles.length}</b><span>Vehiculos totales</span></div>
+      <div class="kpi-card"><div class="ic" style="background:var(--success)"><i class="ph-fill ph-check-circle"></i></div><b>${available}</b><span>Disponibles</span></div>
+      <div class="kpi-card"><div class="ic" style="background:var(--gold)"><i class="ph-bold ph-key"></i></div><b>${rented}</b><span>Rentados ahora</span></div>
+      <div class="kpi-card"><div class="ic" style="background:var(--red)"><i class="ph-bold ph-users"></i></div><b>${users.length}</b><span>Usuarios registrados</span></div>
     `;
 
     const recent = reservations.slice(0, 8);
@@ -51,7 +51,7 @@ async function loadDashboard() {
         .join('');
     }
   } catch (err) {
-    kpiGrid.innerHTML = `<div class="empty-state"><div class="ic"><i class="fa-solid fa-plug-circle-xmark"></i></div>${err.message}</div>`;
+    kpiGrid.innerHTML = `<div class="empty-state"><div class="ic"><i class="ph-bold ph-plug"></i></div>${err.message}</div>`;
   }
 }
 

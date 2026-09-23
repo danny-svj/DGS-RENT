@@ -26,8 +26,8 @@ async function loadVehicles() {
         <td>${dgsFormatMoney(v.daily_price)}</td>
         <td><span class="badge badge-${v.status}">${v.status}</span></td>
         <td class="row-actions">
-          <button class="btn btn-ghost btn-sm" onclick="openVehicleModal(${v.id})"><i class="fa-solid fa-pen"></i></button>
-          <button class="btn btn-danger btn-sm" onclick="deleteVehicle(${v.id})"><i class="fa-solid fa-trash"></i></button>
+          <button class="btn btn-ghost btn-sm" onclick="openVehicleModal(${v.id})"><i class="ph-bold ph-pencil-simple"></i></button>
+          <button class="btn btn-danger btn-sm" onclick="deleteVehicle(${v.id})"><i class="ph-bold ph-trash"></i></button>
         </td>
       </tr>`
       )

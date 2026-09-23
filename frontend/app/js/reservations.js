@@ -27,7 +27,7 @@ async function loadReservations() {
     if (!reservations.length) {
       body.innerHTML = '';
       empty.style.display = 'block';
-      empty.innerHTML = '<div class="empty-state"><div class="ic"><i class="fa-solid fa-calendar-xmark"></i></div>Aun no tienes reservaciones. <a href="fleet.html">Reserva tu primer auto</a>.</div>';
+      empty.innerHTML = '<div class="empty-state"><div class="ic"><i class="ph-bold ph-calendar-x"></i></div>Aun no tienes reservaciones. <a href="fleet.html">Reserva tu primer auto</a>.</div>';
       return;
     }
     empty.style.display = 'none';
@@ -47,7 +47,7 @@ async function loadReservations() {
   } catch (err) {
     body.innerHTML = '';
     empty.style.display = 'block';
-    empty.innerHTML = `<div class="empty-state"><div class="ic"><i class="fa-solid fa-plug-circle-xmark"></i></div>${err.message}</div>`;
+    empty.innerHTML = `<div class="empty-state"><div class="ic"><i class="ph-bold ph-plug"></i></div>${err.message}</div>`;
   }
 }
 

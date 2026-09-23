@@ -19,7 +19,7 @@ function vehicleCard(v) {
       </div>
       <div class="car-body">
         <h4>${v.brand} ${v.model} ${v.year}</h4>
-        <div class="car-meta"><span><i class="fa-solid fa-tag"></i> ${v.category}</span><span><i class="fa-solid fa-hashtag"></i> ${v.plate}</span></div>
+        <div class="car-meta"><span><i class="ph-bold ph-tag"></i> ${v.category}</span><span><i class="ph-bold ph-hash"></i> ${v.plate}</span></div>
         <div class="car-price"><b>${dgsFormatMoney(v.daily_price)}</b><span>por dia</span></div>
         <button class="btn btn-primary btn-block btn-sm" ${disabled ? 'disabled' : ''} onclick='openReserveModal(${JSON.stringify(v)})'>
           ${disabled ? 'No disponible' : 'Reservar'}
@@ -41,12 +41,12 @@ async function loadFleet() {
   try {
     const { vehicles } = await DGS.vehicles.list(params);
     if (!vehicles.length) {
-      grid.innerHTML = '<div class="empty-state"><div class="ic"><i class="fa-solid fa-car-burst"></i></div>No hay vehiculos que coincidan con tu busqueda.</div>';
+      grid.innerHTML = '<div class="empty-state"><div class="ic"><i class="ph-bold ph-car"></i></div>No hay vehiculos que coincidan con tu busqueda.</div>';
       return;
     }
     grid.innerHTML = vehicles.map(vehicleCard).join('');
   } catch (err) {
-    grid.innerHTML = `<div class="empty-state"><div class="ic"><i class="fa-solid fa-plug-circle-xmark"></i></div>${err.message}</div>`;
+    grid.innerHTML = `<div class="empty-state"><div class="ic"><i class="ph-bold ph-plug"></i></div>${err.message}</div>`;
   }
 }
 
