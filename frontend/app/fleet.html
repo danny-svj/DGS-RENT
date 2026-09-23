@@ -39,6 +39,7 @@
             <option value="SUV">SUV</option>
             <option value="Deportivo">Deportivo</option>
             <option value="Van">Van</option>
+            <option value="Pickup">Pickup</option>
           </select>
           <select id="f-status">
             <option value="available">Disponibles</option>
@@ -53,6 +54,16 @@
         <div class="skeleton" style="height:280px"></div>
       </div>
     </div>
+  </div>
+</div>
+
+<div class="modal-backdrop" id="vehicle-detail-modal">
+  <div class="modal vehicle-detail-modal">
+    <div class="modal-head">
+      <h3><span class="material-symbols-rounded" aria-hidden="true">directions_car</span> Detalle del vehiculo</h3>
+      <button class="modal-close" id="vd-close" aria-label="Cerrar" type="button"><i class="ph-bold ph-x"></i></button>
+    </div>
+    <div id="vd-body"></div>
   </div>
 </div>
 

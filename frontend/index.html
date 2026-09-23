@@ -370,6 +370,16 @@
   </div>
 </div>
 
+<div class="modal-backdrop" id="vehicle-detail-modal">
+  <div class="modal vehicle-detail-modal">
+    <div class="modal-head">
+      <h3><span class="material-symbols-rounded" aria-hidden="true">directions_car</span> Detalle del vehiculo</h3>
+      <button class="modal-close" id="vd-close" aria-label="Cerrar" type="button"><i class="ph-bold ph-x"></i></button>
+    </div>
+    <div id="vd-body"></div>
+  </div>
+</div>
+
 <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
 <script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
@@ -381,11 +391,23 @@
 <script src="js/vehicle-icons.js"></script>
 <script src="js/gsap-effects.js"></script>
 <script>
+  let dgsPreviewCache = [];
+  function dgsShowPreviewDetail(id) {
+    const v = dgsPreviewCache.find((x) => x.id === id);
+    if (!v) return;
+    dgsOpenVehicleDetail(
+      v,
+      'assets/cars/',
+      '<a href="register.html" class="btn btn-primary">Crear cuenta y reservar</a><a href="#flota" class="btn btn-ghost" onclick="dgsCloseVehicleDetail()">Ver flota completa</a>'
+    );
+  }
+
   (async function loadFleetPreview() {
     const el = document.getElementById('fleet-preview');
     try {
       const { vehicles } = await DGS.vehicles.list({ status: 'available' });
-      const items = vehicles.slice(0, 3);
+      const items = vehicles.slice(0, 9);
+      dgsPreviewCache = items;
       if (!items.length) {
         el.innerHTML = '<div class="empty-state"><div class="ic"><i class="ph-bold ph-car"></i></div>No hay vehiculos disponibles por el momento.</div>';
         return;
@@ -393,10 +415,11 @@
       el.innerHTML = items
         .map(
           (v, i) => `
-        <div class="car-card tilt reveal reveal-delay-${i + 1} in">
-          <div class="car-media"><img src="${v.image_url || 'assets/cars/sedan-blue.svg'}" alt="${v.brand} ${v.model}" />
+        <div class="car-card tilt reveal reveal-delay-${(i % 3) + 1} in" onclick="dgsShowPreviewDetail(${v.id})">
+          <div class="car-media"><img src="${v.image_url || dgsVehicleFallbackImage(v.category)}" alt="${v.brand} ${v.model}" />
             <span class="car-badge badge-available">Disponible</span>
             ${dgsVehicleBadge(v.category)}
+            ${dgsPromoRibbon(v.plate)}
           </div>
           <div class="car-body">
             <h4>${v.brand} ${v.model} ${v.year}</h4>
