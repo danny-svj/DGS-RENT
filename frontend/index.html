@@ -15,6 +15,7 @@
   <div class="container">
     <a href="index.html" class="brand"><img src="assets/logo.png" alt="DGS Rent a Car" class="logo-anim" /></a>
     <ul class="nav-links">
+      <li><a href="#nosotros">Nosotros</a></li>
       <li><a href="#flota">Flota</a></li>
       <li><a href="#servicios">Servicios</a></li>
       <li><a href="#empresas">Empresas</a></li>
@@ -28,6 +29,7 @@
 </nav>
 
 <header class="hero">
+  <div class="hero-spotlight"></div>
   <div class="container hero-grid">
     <div class="hero-intro">
       <div class="eyebrow"><span class="dot"></span> Disponibilidad en tiempo real</div>
@@ -91,6 +93,43 @@
 
 <div class="stripe"></div>
 
+<section class="section" id="nosotros" style="background:var(--white)">
+  <div class="container grid-2" style="align-items:center">
+    <div class="reveal-left reveal">
+      <div class="kicker">Conocenos</div>
+      <h2>Una rentadora hecha por y para viajeros</h2>
+      <p style="margin-top:16px">DGS Rent a Car nacio con una idea simple: rentar un auto no deberia sentirse complicado. Desde nuestras primeras sucursales hemos crecido acompanando a familias, viajeros de negocios y empresas que necesitan movilidad confiable, sin letras chiquitas ni sorpresas.</p>
+      <p style="margin-top:14px">Hoy seguimos operando con el mismo principio: flota verificada, procesos 100% digitales y un equipo listo para resolver cualquier imprevisto en el camino.</p>
+      <div class="hero-cta">
+        <a href="#flota" class="btn btn-primary">Conoce la flota <i class="fa-solid fa-arrow-right"></i></a>
+        <a href="#contacto" class="btn btn-ghost">Hablar con nosotros</a>
+      </div>
+    </div>
+    <div class="values-grid reveal-right reveal">
+      <div class="value-card tilt">
+        <div class="svc-icon" style="background:var(--blue)"><i class="fa-solid fa-handshake"></i></div>
+        <h3>Confianza</h3>
+        <p>Contratos claros y flota verificada antes de cada entrega.</p>
+      </div>
+      <div class="value-card tilt">
+        <div class="svc-icon" style="background:var(--red)"><i class="fa-solid fa-bolt"></i></div>
+        <h3>Rapidez</h3>
+        <p>Reserva y recoge tu auto en minutos, sin filas.</p>
+      </div>
+      <div class="value-card tilt">
+        <div class="svc-icon" style="background:var(--gold)"><i class="fa-solid fa-shield-heart"></i></div>
+        <h3>Seguridad</h3>
+        <p>Asistencia en carretera y seguro incluido en cada renta.</p>
+      </div>
+      <div class="value-card tilt">
+        <div class="svc-icon" style="background:var(--success)"><i class="fa-solid fa-leaf"></i></div>
+        <h3>Compromiso</h3>
+        <p>Mantenimiento constante para un viaje siempre seguro.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="section" id="servicios">
   <div class="container">
     <div class="section-head reveal">
@@ -150,12 +189,23 @@
         <p>Firma tu contrato digital, recoge las llaves y arranca tu recorrido.</p>
       </div>
     </div>
-    <div class="city-chips reveal reveal-delay-1">
-      <div class="city-chip"><i class="fa-solid fa-location-dot"></i> Ciudad de Mexico</div>
-      <div class="city-chip"><i class="fa-solid fa-location-dot"></i> Guadalajara</div>
-      <div class="city-chip"><i class="fa-solid fa-location-dot"></i> Monterrey</div>
-      <div class="city-chip"><i class="fa-solid fa-location-dot"></i> Cancun</div>
-      <div class="city-chip"><i class="fa-solid fa-location-dot"></i> Tijuana</div>
+    <div class="city-marquee reveal reveal-delay-1">
+      <div class="city-track">
+        <div class="city-chip"><i class="fa-solid fa-location-dot"></i> Ciudad de Mexico</div>
+        <div class="city-chip"><i class="fa-solid fa-location-dot"></i> Guadalajara</div>
+        <div class="city-chip"><i class="fa-solid fa-location-dot"></i> Monterrey</div>
+        <div class="city-chip"><i class="fa-solid fa-location-dot"></i> Cancun</div>
+        <div class="city-chip"><i class="fa-solid fa-location-dot"></i> Tijuana</div>
+        <div class="city-chip"><i class="fa-solid fa-location-dot"></i> Puebla</div>
+        <div class="city-chip"><i class="fa-solid fa-location-dot"></i> Merida</div>
+        <div class="city-chip"><i class="fa-solid fa-location-dot"></i> Ciudad de Mexico</div>
+        <div class="city-chip"><i class="fa-solid fa-location-dot"></i> Guadalajara</div>
+        <div class="city-chip"><i class="fa-solid fa-location-dot"></i> Monterrey</div>
+        <div class="city-chip"><i class="fa-solid fa-location-dot"></i> Cancun</div>
+        <div class="city-chip"><i class="fa-solid fa-location-dot"></i> Tijuana</div>
+        <div class="city-chip"><i class="fa-solid fa-location-dot"></i> Puebla</div>
+        <div class="city-chip"><i class="fa-solid fa-location-dot"></i> Merida</div>
+      </div>
     </div>
   </div>
 </section>
@@ -198,37 +248,65 @@
   </div>
 </section>
 
-<section class="section" style="background:var(--white)">
+<section class="section" style="background:var(--white)" id="resenas">
   <div class="container">
     <div class="section-head reveal">
-      <div class="kicker">Clientes DGS</div>
-      <h2>Lo que dicen quienes ya rentaron con nosotros</h2>
-      <p>Experiencias de clientes particulares y empresariales en nuestras sucursales.</p>
+      <div class="kicker">Opiniones</div>
+      <h2>Reseñas de nuestros clientes</h2>
+      <p>Calificaciones reales de quienes ya rentaron con DGS Rent a Car.</p>
     </div>
+
+    <div class="rating-summary reveal">
+      <div class="rating-score">
+        <b data-count="4.8" data-decimals="1">0.0</b>
+        <div class="rating-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i></div>
+        <span>216 reseñas verificadas</span>
+      </div>
+      <div class="rating-bars reveal">
+        <div class="rbar"><span>5</span><div class="rbar-track"><div class="rbar-fill" style="--w:82%"></div></div></div>
+        <div class="rbar"><span>4</span><div class="rbar-track"><div class="rbar-fill" style="--w:12%"></div></div></div>
+        <div class="rbar"><span>3</span><div class="rbar-track"><div class="rbar-fill" style="--w:4%"></div></div></div>
+        <div class="rbar"><span>2</span><div class="rbar-track"><div class="rbar-fill" style="--w:1%"></div></div></div>
+        <div class="rbar"><span>1</span><div class="rbar-track"><div class="rbar-fill" style="--w:1%"></div></div></div>
+      </div>
+    </div>
+
     <div class="testi-grid">
       <div class="testi-card tilt reveal reveal-delay-1">
-        <div class="testi-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+        <div class="testi-top">
+          <div class="testi-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+          <span class="testi-verified"><i class="fa-solid fa-circle-check"></i> Verificada</span>
+        </div>
         <p class="testi-quote">"Reserve un SUV para un viaje familiar en menos de 5 minutos desde el celular. El auto estaba impecable y el proceso de entrega fue muy rapido."</p>
         <div class="testi-person">
           <div class="testi-avatar" style="background:var(--blue)">MR</div>
           <div><b>Mariana R.</b><span>Cliente particular — Guadalajara</span></div>
         </div>
+        <div class="testi-helpful"><i class="fa-regular fa-thumbs-up"></i> Util (12) · hace 2 semanas</div>
       </div>
       <div class="testi-card tilt reveal reveal-delay-2">
-        <div class="testi-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+        <div class="testi-top">
+          <div class="testi-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+          <span class="testi-verified"><i class="fa-solid fa-circle-check"></i> Verificada</span>
+        </div>
         <p class="testi-quote">"Gestionamos la flotilla de toda nuestra fuerza de ventas desde el panel B2B. La facturacion centralizada nos ahorra horas cada mes."</p>
         <div class="testi-person">
           <div class="testi-avatar" style="background:var(--red)">JC</div>
           <div><b>Jorge C.</b><span>Gerente de operaciones — Monterrey</span></div>
         </div>
+        <div class="testi-helpful"><i class="fa-regular fa-thumbs-up"></i> Util (8) · hace 1 mes</div>
       </div>
       <div class="testi-card tilt reveal reveal-delay-3">
-        <div class="testi-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i></div>
+        <div class="testi-top">
+          <div class="testi-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i></div>
+          <span class="testi-verified"><i class="fa-solid fa-circle-check"></i> Verificada</span>
+        </div>
         <p class="testi-quote">"El soporte 24/7 me salvo el viaje cuando tuve una llanta ponchada en carretera. Llegaron rapido y me dieron un auto de reemplazo."</p>
         <div class="testi-person">
           <div class="testi-avatar" style="background:var(--gold)">LP</div>
           <div><b>Luis P.</b><span>Cliente particular — Ciudad de Mexico</span></div>
         </div>
+        <div class="testi-helpful"><i class="fa-regular fa-thumbs-up"></i> Util (5) · hace 3 semanas</div>
       </div>
     </div>
   </div>

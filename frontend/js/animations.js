@@ -42,6 +42,30 @@ document.addEventListener('DOMContentLoaded', () => {
     true
   );
 
+  // ---------- Hero pointer spotlight (4D glow) ----------
+  const heroEl = document.querySelector('.hero');
+  if (heroEl) {
+    const onHeroMove = (e) => {
+      const rect = heroEl.getBoundingClientRect();
+      heroEl.style.setProperty('--mx', `${e.clientX - rect.left}px`);
+      heroEl.style.setProperty('--my', `${e.clientY - rect.top}px`);
+    };
+    heroEl.addEventListener('mousemove', onHeroMove);
+  }
+
+  // ---------- Magnetic buttons ----------
+  document.querySelectorAll('.btn-accent, .btn-primary').forEach((btn) => {
+    btn.addEventListener('mousemove', (e) => {
+      const rect = btn.getBoundingClientRect();
+      const x = e.clientX - rect.left - rect.width / 2;
+      const y = e.clientY - rect.top - rect.height / 2;
+      btn.style.transform = `translate(${x * 0.15}px, ${y * 0.35}px)`;
+    });
+    btn.addEventListener('mouseleave', () => {
+      btn.style.transform = '';
+    });
+  });
+
   // ---------- Hero search widget (rental-style) ----------
   const hsStart = document.getElementById('hs-start');
   const hsEnd = document.getElementById('hs-end');
@@ -69,6 +93,7 @@ document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('[data-count]').forEach((el) => {
     const target = parseFloat(el.getAttribute('data-count'));
     const suffix = el.getAttribute('data-suffix') || '';
+    const decimals = parseInt(el.getAttribute('data-decimals') || '0', 10);
     let started = false;
     const io = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
@@ -79,7 +104,7 @@ document.addEventListener('DOMContentLoaded', () => {
           function tick(now) {
             const progress = Math.min(1, (now - start) / duration);
             const eased = 1 - (1 - progress) * (1 - progress);
-            el.textContent = Math.round(eased * target) + suffix;
+            el.textContent = (eased * target).toFixed(decimals) + suffix;
             if (progress < 1) requestAnimationFrame(tick);
           }
           requestAnimationFrame(tick);
