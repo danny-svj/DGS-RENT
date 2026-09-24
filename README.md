@@ -100,6 +100,6 @@ Cobertura minima exigida (configurada en `package.json > jest.coverageThreshold`
 - Validacion de entradas con `express-validator`.
 - Escaneo automatico de vulnerabilidades con OWASP ZAP en cada push (ver Actions > Seguridad).
 
-## Autor
+## 
 
 Daniel Alejandro Gonzalez Salazar — Ingenieria en Desarrollo de Software, Universidad Tecmilenio.
