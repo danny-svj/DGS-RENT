@@ -1,4 +1,4 @@
-name: Seguridad - OWASP ZAP baseline scan
+name: ZAP Scan
 
 on:
   push:
@@ -11,7 +11,7 @@ permissions:
 
 jobs:
   zap-scan:
-    name: Escaneo OWASP ZAP
+    name: ZAP Scan
     runs-on: ubuntu-latest
     steps:
       - name: Checkout

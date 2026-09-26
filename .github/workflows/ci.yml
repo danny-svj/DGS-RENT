@@ -1,4 +1,4 @@
-name: CI - Tests y calidad
+name: Tests
 
 on:
   push:
@@ -8,7 +8,7 @@ on:
 
 jobs:
   test:
-    name: Lint, tests y cobertura
+    name: Tests
     runs-on: ubuntu-latest
     defaults:
       run:

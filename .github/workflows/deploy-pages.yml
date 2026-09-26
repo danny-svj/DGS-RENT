@@ -1,4 +1,4 @@
-name: CD - Deploy frontend a GitHub Pages
+name: Deploy Pages
 
 on:
   push:
