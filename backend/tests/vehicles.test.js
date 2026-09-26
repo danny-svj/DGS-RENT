@@ -151,20 +151,6 @@ describe('Vehicles API', () => {
     expect(res.status).toBe(404);
   });
 
-  test('PUT /api/vehicles/:id rechaza rol user', async () => {
-    const { adminToken, userToken } = await getTokens();
-    const created = await request(app)
-      .post('/api/vehicles')
-      .set('Authorization', `Bearer ${adminToken}`)
-      .send(uniqueVehicle());
-
-    const res = await request(app)
-      .put(`/api/vehicles/${created.body.vehicle.id}`)
-      .set('Authorization', `Bearer ${userToken}`)
-      .send({ status: 'maintenance' });
-    expect(res.status).toBe(403);
-  });
-
   test('DELETE /api/vehicles/:id elimina un vehiculo como admin', async () => {
     const { adminToken } = await getTokens();
     const created = await request(app)

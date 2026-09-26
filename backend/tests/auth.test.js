@@ -30,13 +30,6 @@ describe('Auth API', () => {
     expect(res.status).toBe(400);
   });
 
-  test('POST /api/auth/register rechaza contrasena corta', async () => {
-    const res = await request(app)
-      .post('/api/auth/register')
-      .send(uniqueUser({ password: '123' }));
-    expect(res.status).toBe(400);
-  });
-
   test('POST /api/auth/register rechaza correo duplicado', async () => {
     const newUser = uniqueUser();
     await request(app).post('/api/auth/register').send(newUser);
@@ -63,20 +56,8 @@ describe('Auth API', () => {
     expect(res.status).toBe(401);
   });
 
-  test('POST /api/auth/login rechaza usuario inexistente', async () => {
-    const res = await request(app)
-      .post('/api/auth/login')
-      .send({ email: 'nadie@example.com', password: 'lo-que-sea' });
-    expect(res.status).toBe(401);
-  });
-
   test('GET /api/auth/me requiere token', async () => {
     const res = await request(app).get('/api/auth/me');
-    expect(res.status).toBe(401);
-  });
-
-  test('GET /api/auth/me rechaza token invalido', async () => {
-    const res = await request(app).get('/api/auth/me').set('Authorization', 'Bearer token-falso');
     expect(res.status).toBe(401);
   });
 

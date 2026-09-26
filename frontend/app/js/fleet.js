@@ -13,7 +13,7 @@ function vehicleCard(v) {
   const badgeText = { available: 'Disponible', rented: 'Rentado', maintenance: 'Mantenimiento' }[v.status];
   const disabled = v.status !== 'available';
   return `
-    <div class="car-card tilt" onclick="dgsShowFleetDetail(${v.id})">
+    <div class="car-card" onclick="dgsShowFleetDetail(${v.id})">
       <div class="car-media">
         <img src="${v.image_url || dgsVehicleFallbackImage(v.category, '../assets/cars/')}" alt="${v.brand} ${v.model}" />
         <span class="car-badge ${badgeClass}">${badgeText}</span>
