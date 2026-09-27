@@ -21,7 +21,7 @@ const DGS = (() => {
     }
   }
 
-  async function request(path, { method = 'GET', body, auth = false } = {}) {
+  async function request(path, { method = 'GET', body, auth = false, _retry = 0 } = {}) {
     const headers = { 'Content-Type': 'application/json' };
     if (auth) {
       const token = getToken();
@@ -37,6 +37,24 @@ const DGS = (() => {
       });
     } catch (networkErr) {
       const err = new Error('No se pudo conectar con el servidor. Verifica que el backend este activo.');
+      err.network = true;
+      throw err;
+    }
+
+    // El backend esta en un plan gratuito de Render y se "duerme" tras un
+    // rato sin uso. Mientras despierta, responde con una pagina HTML en
+    // vez de JSON. En ese caso reintentamos unas cuantas veces en vez de
+    // mostrar un error confuso.
+    const contentType = res.headers.get('content-type') || '';
+    if (!contentType.includes('json')) {
+      if (_retry < 8) {
+        if (_retry === 0 && typeof dgsToast === 'function') {
+          dgsToast('El servidor estaba dormido, despertando... puede tardar unos segundos.', 'default');
+        }
+        await new Promise((resolve) => setTimeout(resolve, 4000));
+        return request(path, { method, body, auth, _retry: _retry + 1 });
+      }
+      const err = new Error('El servidor esta tardando mas de lo normal en responder. Intenta de nuevo en un momento.');
       err.network = true;
       throw err;
     }

@@ -1,0 +1,14 @@
+name: Keep Alive
+
+on:
+  schedule:
+    - cron: '*/10 * * * *'
+  workflow_dispatch:
+
+jobs:
+  ping:
+    name: Ping backend
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ping API
+        run: curl -sf https://dgs-rent-api.onrender.com/api/health || echo "El backend no respondio a tiempo (puede que estuviera dormido; este intento ya lo esta despertando)"
