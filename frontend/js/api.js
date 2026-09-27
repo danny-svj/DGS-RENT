@@ -105,6 +105,16 @@ const DGS = (() => {
     users: {
       list: () => request('/users', { auth: true }),
     },
+    messages: {
+      list: () => request('/messages', { auth: true }),
+      send: (text) => request('/messages', { method: 'POST', body: { body: text }, auth: true }),
+      unreadCount: () => request('/messages/unread', { auth: true }),
+      adminThreads: () => request('/messages/admin/threads', { auth: true }),
+      adminUnreadCount: () => request('/messages/admin/unread', { auth: true }),
+      adminThread: (userId) => request(`/messages/admin/thread/${userId}`, { auth: true }),
+      adminSend: (userId, text) =>
+        request(`/messages/admin/thread/${userId}`, { method: 'POST', body: { body: text }, auth: true }),
+    },
   };
 })();
 

@@ -40,7 +40,7 @@ async function loadReservations() {
         <td>${fmtDate(r.end_date)}</td>
         <td>${dgsFormatMoney(r.total_price)}</td>
         <td><span class="badge badge-${r.status}">${r.status}</span></td>
-        <td>${r.status === 'pending' ? `<button class="btn btn-ghost btn-sm" onclick="cancelReservation(${r.id})">Cancelar</button>` : ''}</td>
+        <td>${r.status === 'pending' || r.status === 'confirmed' ? `<button class="btn btn-ghost btn-sm" onclick="cancelReservation(${r.id})">Cancelar</button>` : ''}</td>
       </tr>`
       )
       .join('');

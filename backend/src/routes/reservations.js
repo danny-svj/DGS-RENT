@@ -111,6 +111,9 @@ router.delete('/:id', authenticate, (req, res) => {
   if (req.user.role !== 'admin' && reservation.user_id !== req.user.id) {
     return res.status(403).json({ error: 'No puedes cancelar esta reservacion' });
   }
+  if (!['pending', 'confirmed'].includes(reservation.status)) {
+    return res.status(409).json({ error: 'Esta reservacion ya no se puede cancelar' });
+  }
 
   db.prepare("UPDATE reservations SET status = 'cancelled' WHERE id = ?").run(req.params.id);
   db.prepare("UPDATE vehicles SET status = 'available' WHERE id = ?").run(reservation.vehicle_id);

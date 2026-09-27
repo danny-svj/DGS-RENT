@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Reservaciones — Admin DGS Rent a Car</title>
+<title>Chat — DGS Rent a Car</title>
 <link rel="icon" href="../assets/logo.png" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
 <script src="https://unpkg.com/@phosphor-icons/web@2.1.1"></script>
@@ -13,11 +13,9 @@
 <div class="app-shell">
   <aside class="sidebar">
     <a href="../index.html" class="brand"><img src="../assets/logo.png" alt="DGS Rent a Car" class="logo-anim" /></a>
-    <a href="dashboard.html" class="side-link"><span class="ic"><i class="ph-bold ph-chart-line"></i></span> Dashboard</a>
-    <a href="vehicles.html" class="side-link"><span class="ic"><i class="ph-bold ph-car"></i></span> Vehiculos</a>
-    <a href="reservations.html" class="side-link active"><span class="ic"><i class="ph-bold ph-calendar-check"></i></span> Reservaciones</a>
-    <a href="users.html" class="side-link"><span class="ic"><i class="ph-bold ph-users"></i></span> Usuarios</a>
-    <a href="chat.html" class="side-link"><span class="ic"><i class="ph-bold ph-chat-circle-dots"></i></span> Chat<span class="side-badge" id="chat-badge" style="display:none"></span></a>
+    <a href="fleet.html" class="side-link"><span class="ic"><i class="ph-bold ph-car"></i></span> Flota</a>
+    <a href="reservations.html" class="side-link"><span class="ic"><i class="ph-bold ph-calendar-check"></i></span> Mis reservaciones</a>
+    <a href="chat.html" class="side-link active"><span class="ic"><i class="ph-bold ph-chat-circle-dots"></i></span> Chat<span class="side-badge" id="chat-badge" style="display:none"></span></a>
     <div class="sidebar-footer">
       <div class="user-chip">
         <div class="avatar" id="avatar">--</div>
@@ -28,15 +26,16 @@
   </aside>
 
   <div class="main-area">
-    <div class="topbar"><h1>Reservaciones</h1></div>
+    <div class="topbar"><h1>Chat con soporte</h1></div>
     <div class="content">
-      <div class="panel">
-        <div style="overflow-x:auto">
-          <table>
-            <thead><tr><th>Cliente</th><th>Vehiculo</th><th>Del</th><th>Al</th><th>Total</th><th>Estado</th><th></th></tr></thead>
-            <tbody id="res-body"></tbody>
-          </table>
+      <div class="panel chat-panel">
+        <div class="chat-messages" id="chat-messages">
+          <div class="skeleton" style="height:60px;margin:24px"></div>
         </div>
+        <form class="chat-input-row" id="chat-form">
+          <input type="text" id="chat-input" placeholder="Escribe tu mensaje..." maxlength="2000" autocomplete="off" />
+          <button type="submit" class="btn btn-primary btn-sm" id="chat-send"><i class="ph-bold ph-paper-plane-tilt"></i> Enviar</button>
+        </form>
       </div>
     </div>
   </div>
@@ -45,6 +44,6 @@
 <script src="../js/config.js"></script>
 <script src="../js/api.js"></script>
 <script src="../js/chat-badge.js"></script>
-<script src="js/reservations.js"></script>
+<script src="js/chat.js"></script>
 </body>
 </html>
