@@ -27,14 +27,14 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Configurar GitHub Pages
+      - name: GitHub Pages
         uses: actions/configure-pages@v5
 
-      - name: Subir artefacto (carpeta frontend)
+      - name: Subir frontend
         uses: actions/upload-pages-artifact@v3
         with:
           path: frontend
 
-      - name: Publicar en GitHub Pages
+      - name: Publicar
         id: deployment
         uses: actions/deploy-pages@v4

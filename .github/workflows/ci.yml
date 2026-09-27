@@ -18,7 +18,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Configurar Node.js
+      - name: Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '20'
@@ -28,13 +28,13 @@ jobs:
       - name: Instalar dependencias
         run: npm ci
 
-      - name: Lint (ESLint)
+      - name: Lint
         run: npm run lint
 
-      - name: Pruebas unitarias con cobertura (Jest)
+      - name: Tests
         run: npm run test:coverage
 
-      - name: Subir reporte de cobertura
+      - name: Cobertura
         uses: actions/upload-artifact@v4
         if: always()
         with:

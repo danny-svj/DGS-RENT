@@ -17,29 +17,29 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Configurar Node.js
+      - name: Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '22'
 
-      - name: Instalar dependencias del backend
+      - name: Instalar dependencias
         working-directory: backend
         run: npm ci
 
-      - name: Levantar API en segundo plano
+      - name: Arrancar API
         working-directory: backend
         run: |
           JWT_SECRET=ci-secret DB_PATH=./ci-data.sqlite PORT=4000 nohup npm start > server.log 2>&1 &
           npx wait-on http://localhost:4000/api/health --timeout 30000
 
-      - name: Escaneo baseline con OWASP ZAP
+      - name: ZAP Scan
         uses: zaproxy/action-baseline@master
         with:
           target: 'http://localhost:4000/api/health'
           fail_action: false
           cmd_options: '-a'
 
-      - name: Subir reporte de ZAP
+      - name: Reporte ZAP
         uses: actions/upload-artifact@v4
         if: always()
         with:

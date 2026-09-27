@@ -20,18 +20,18 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Configurar Node.js
+      - name: Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '20'
 
-      - name: Instalar dependencias y generar cobertura
+      - name: Cobertura
         working-directory: backend
         run: |
           npm ci
           npm run test:coverage
 
-      - name: Analisis SonarCloud
+      - name: SonarCloud
         uses: SonarSource/sonarcloud-github-action@master
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
