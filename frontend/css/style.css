@@ -220,8 +220,7 @@ button { font-family: inherit; cursor: pointer; }
   min-height: 320px;
   display: flex; align-items: center; justify-content: center;
 }
-.car-stage.car-stage-video { padding: 0; min-height: 0; display: block; }
-.hero-video { display: block; width: 100%; height: auto; border-radius: var(--radius-lg); }
+.hero-logo { width: 62%; max-width: 280px; height: auto; filter: drop-shadow(0 10px 24px rgba(16, 22, 43, 0.16)); }
 
 .logo-anim { transition: opacity 0.2s ease; }
 .brand:hover .logo-anim, .sidebar .brand:hover .logo-anim { opacity: 0.85; }
