@@ -456,6 +456,7 @@ button { font-family: inherit; cursor: pointer; }
 .vehicle-detail-modal .modal-head { padding: 18px 22px; margin-bottom: 0; border-bottom: 1px solid var(--line); }
 .vehicle-detail-modal .modal-head h3 { font-size: 1rem; display: flex; align-items: center; gap: 8px; }
 #vd-body { display: grid; grid-template-columns: 1.05fr 1fr; max-height: 82vh; overflow-y: auto; }
+#vd-body > * { min-width: 0; }
 .vd-media {
   position: relative; background: linear-gradient(180deg, #ffffff 0%, #f5f7ff 100%);
   display: flex; align-items: center; justify-content: center; min-height: 260px;
