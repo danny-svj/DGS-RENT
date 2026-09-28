@@ -6,7 +6,7 @@ if (user) {
 }
 
 const threadList = document.getElementById('thread-list');
-const head = document.getElementById('conversation-head');
+const conversationHead = document.getElementById('conversation-head');
 const messagesEl = document.getElementById('chat-messages');
 const form = document.getElementById('chat-form');
 const input = document.getElementById('chat-input');
@@ -56,7 +56,7 @@ async function loadThreads() {
 }
 
 function renderMessages(customer, messages) {
-  head.textContent = `${customer.name} — ${customer.email}`;
+  conversationHead.textContent = `${customer.name} — ${customer.email}`;
   form.style.display = 'flex';
   if (!messages.length) {
     messagesEl.innerHTML = '<div class="empty-state"><div class="ic"><i class="ph-bold ph-chats-circle"></i></div>Sin mensajes todavia.</div>';
