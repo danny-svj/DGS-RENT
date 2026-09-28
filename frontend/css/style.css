@@ -461,7 +461,7 @@ button { font-family: inherit; cursor: pointer; }
   position: relative; background: linear-gradient(180deg, #ffffff 0%, #f5f7ff 100%);
   display: flex; align-items: center; justify-content: center; height: 320px;
 }
-.vd-media img { width: 100%; height: 100%; object-fit: cover; }
+.vd-media img { width: 100%; height: 100%; object-fit: contain; padding: 14px; box-sizing: border-box; }
 .vd-media .car-badge { top: 16px; left: 16px; }
 .vd-media .car-type-badge { top: 16px; right: 16px; width: 40px; height: 40px; }
 .vd-media .car-type-badge .material-symbols-rounded { font-size: 21px; }
